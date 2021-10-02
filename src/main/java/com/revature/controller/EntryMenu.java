@@ -7,7 +7,7 @@ public class EntryMenu implements Menu{
 	public void getMenu() {
 		
 		 System.out.println(
-			        "\nHello and welcome to the Bank. Select your login level from the options below or type D to exit \nA. Manager \nB. Teller \nC. Employee \nD. Exit ");
+			        "\nHello and welcome to the Bank. Select your login level from the options below or type D to exit \nA. Manager \nB. Teller \nC. Customer \nD. Exit ");
 
 			    Scanner scanner = new Scanner(System.in);
 

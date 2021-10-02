@@ -19,14 +19,9 @@ public abstract class Login {
 		
 		password = scanner1.nextLine();
 		
-		
-		
-		
-	
-		
-		
-		
-		
 	}
 
+	public void authenticate() {
+		
+	}
 }
