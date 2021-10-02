@@ -6,8 +6,8 @@ public class EntryMenu implements Menu{
 	
 	public void getMenu() {
 		
-		 System.out.println(
-			        "\nHello and welcome to the Bank. Select your login level from the options below or type D to exit \nA. Manager \nB. Teller \nC. Customer \nD. Exit ");
+		 System.out.print(
+			        "Hello and welcome to the Bank. Select your login level from the options below or type D to exit \nA. Manager \nB. Teller \nC. Customer \nD. Exit ");
 
 			    Scanner scanner = new Scanner(System.in);
 
@@ -36,16 +36,19 @@ public class EntryMenu implements Menu{
 			      }
 			      
 			      else if (s.equalsIgnoreCase("d")) {
+			    	  System.out.println("Exiting Program...");
 				        System.exit(0);
 				      }
 
 			      else {
 			        System.out.println("\nInvalid selection. Please select a, b or c");
-			        EntryMenu m = new EntryMenu();
-			        m.getMenu();
+			        EntryMenu em = new EntryMenu();
+			        em.getMenu();
 			      }
 
 			    }
+			    
+			    scanner.close();
 
 	}
 

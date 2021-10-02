@@ -12,9 +12,13 @@ public void getLogin() {
 			
 		username = scanner1.nextLine();
 		
+		Scanner scanner2 = new Scanner(System.in);
+		
 		System.out.println("Password: ");
 		
-		password = scanner1.nextLine();
+		password = scanner2.nextLine();
+		
+		
 		
 		if(true) {
 			ManagerMainMenu mmm = new ManagerMainMenu();
@@ -22,6 +26,7 @@ public void getLogin() {
 		}
 		
 	}
+		
 	}
 
 

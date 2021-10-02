@@ -17,6 +17,8 @@ public class TellerLogin extends Login {
 			
 			password = scanner1.nextLine();
 			
+			scanner1.close();
+			
 			if(true) {
 				
 				TellerMainMenu tmm = new TellerMainMenu();
