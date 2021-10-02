@@ -1,7 +1,32 @@
 package com.revature.controller;
 
-public interface Login {
+import java.util.Scanner;
+
+public abstract class Login {
 	
-	void getLogin();
+	private String username;
+	private String password;
+	
+	public void getLogin() {
+		
+		System.out.println("Please enter your username and password: \nUsername: ");
+		
+		Scanner scanner1 = new Scanner(System.in);
+			
+		username = scanner1.nextLine();
+		
+		System.out.println("Password: ");
+		
+		password = scanner1.nextLine();
+		
+		
+		
+		
+	
+		
+		
+		
+		
+	}
 
 }

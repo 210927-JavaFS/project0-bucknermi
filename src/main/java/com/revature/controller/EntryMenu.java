@@ -7,7 +7,7 @@ public class EntryMenu implements Menu{
 	public void getMenu() {
 		
 		 System.out.println(
-			        "\nHello and welcome to the Bank. Select your login level from the options below \nA. Manager \nB. Teller \nC. Employee ");
+			        "\nHello and welcome to the Bank. Select your login level from the options below or type D to exit \nA. Manager \nB. Teller \nC. Employee \nD. Exit ");
 
 			    Scanner scanner = new Scanner(System.in);
 
@@ -16,17 +16,28 @@ public class EntryMenu implements Menu{
 
 			      if (s.equalsIgnoreCase("a")) {
 			        
-			    	  System.out.println("a");
+			    	  
+			    	  ManagerLogin ml = new ManagerLogin();
+			    	  ml.getLogin();
 			      }
 
 			      else if (s.equalsIgnoreCase("b")) {
 			       
-			    	  	System.out.println("b");
+			    	  	
+			    	  	TellerLogin tl = new TellerLogin();
+			    	  	tl.getLogin();
 			      }
 
 			      else if (s.equalsIgnoreCase("c")) {
-			        System.exit(0);
+			    	  
+			    	  CustomerLogin cl = new CustomerLogin();
+			    	  cl.getLogin();
+			        
 			      }
+			      
+			      else if (s.equalsIgnoreCase("d")) {
+				        System.exit(0);
+				      }
 
 			      else {
 			        System.out.println("\nInvalid selection. Please select a, b or c");

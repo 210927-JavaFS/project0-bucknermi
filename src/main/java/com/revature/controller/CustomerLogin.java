@@ -1,8 +1,8 @@
 package com.revature.controller;
 
-public class CustomerLogin implements Login {
+public class CustomerLogin extends Login {
 	
-	public void getLogin() {
+	 {
 		
 		
 	}

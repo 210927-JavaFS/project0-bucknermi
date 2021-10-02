@@ -1,9 +1,7 @@
 package com.revature.controller;
 
-public class TellerLogin implements Login {
+public class TellerLogin extends Login {
 	
-	public void getLogin() {
-		
-	}
+	
 
 }
