@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public abstract class Login {
 	
-	private String username;
-	private String password;
+	public String username;
+	public String password;
 	
 	public void getLogin() {
 		
@@ -21,7 +21,4 @@ public abstract class Login {
 		
 	}
 
-	public void authenticate() {
-		
-	}
 }
