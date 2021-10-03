@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TellerProfileMenu {
 	public void getMenu() {
 		
-		System.out.println("Your username and password are: \n Type e to exit to main menu");
+		System.out.println("Your username and password are: \nType e to exit to main menu");
 		
 		Scanner scanner = new Scanner(System.in);
 
@@ -13,8 +13,8 @@ public class TellerProfileMenu {
 	      String s = scanner.nextLine();
 
 	      if (s.equalsIgnoreCase("e")) {
-	    	  CustomerMainMenu cmm = new CustomerMainMenu();
-	          cmm.getMenu();
+	    	  TellerMainMenu tmm = new TellerMainMenu();
+	    	  tmm.getMenu();
 	    	  
 	      }
 

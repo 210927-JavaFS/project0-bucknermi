@@ -21,8 +21,8 @@ public class TellerCustomerAccountsMenu implements Menu{
 	      }
 	     
 	      else if (s.equalsIgnoreCase("e")) {
-	    	  ManagerMainMenu mmm = new ManagerMainMenu();
-	    	  mmm.getMenu();
+	    	  TellerMainMenu tmm = new TellerMainMenu();
+	    	  tmm.getMenu();
 		      }
 
 	      else {

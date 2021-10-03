@@ -23,7 +23,8 @@ public class TellerMainMenu implements Menu {
 
 	      else if (s.equalsIgnoreCase("b")) {
 	       
-	    	  	
+	    	  	TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
+	    	  	tcam.getMenu();
 	    	  
 	      }
 

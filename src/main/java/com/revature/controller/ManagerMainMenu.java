@@ -29,7 +29,8 @@ public class ManagerMainMenu {
 
       else if (s.equalsIgnoreCase("c")) {
     	  
-    	  
+    	  ManagerApplicationMenu mam = new ManagerApplicationMenu();
+    	  mam.getMenu();
         
       }
       

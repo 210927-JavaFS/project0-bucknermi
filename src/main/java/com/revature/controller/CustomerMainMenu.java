@@ -17,8 +17,8 @@ public class CustomerMainMenu implements Menu {
 
 	      if (s.equalsIgnoreCase("a")) {
 	        
-	    	  ManagerProfileMenu mpm = new ManagerProfileMenu();
-	    	  mpm.getMenu();
+	    	  CustomerProfileMenu cpm = new CustomerProfileMenu();
+	    	  cpm.getMenu();
 	    	  
 	      }
 
@@ -45,7 +45,8 @@ public class CustomerMainMenu implements Menu {
 	      
 	      else if (s.equalsIgnoreCase("e")) {
 		        
-	    	  
+	    	  CustomerApplicationMenu cam = new CustomerApplicationMenu();
+	    	  cam.getMenu();
 	      }
 	      
 	      else if (s.equalsIgnoreCase("f")) {
