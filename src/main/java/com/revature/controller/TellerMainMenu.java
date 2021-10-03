@@ -16,18 +16,21 @@ public class TellerMainMenu implements Menu {
 
 	      if (s.equalsIgnoreCase("a")) {
 	        
-	    	  
+	    	  TellerProfileMenu tpm = new TellerProfileMenu();
+	    	  tpm.getMenu();
 	    	 
 	      }
 
 	      else if (s.equalsIgnoreCase("b")) {
 	       
-	    	  	
+	    	  	TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
+	    	  	tcam.getMenu();
 	    	  
 	      }
 
 	      else if (s.equalsIgnoreCase("c")) {
 	    	  
+	    	System.out.println("Exiting Program...");  
 	    	System.exit(0);
 	      }
 	  

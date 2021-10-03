@@ -22,13 +22,15 @@ public class ManagerMainMenu {
 
       else if (s.equalsIgnoreCase("b")) {
        
-    	  	
+    	  	ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
+    	  	mcam.getMenu();
     	  
       }
 
       else if (s.equalsIgnoreCase("c")) {
     	  
-    	  
+    	  ManagerApplicationMenu mam = new ManagerApplicationMenu();
+    	  mam.getMenu();
         
       }
       

@@ -17,30 +17,36 @@ public class CustomerMainMenu implements Menu {
 
 	      if (s.equalsIgnoreCase("a")) {
 	        
-	    	  ManagerProfileMenu mpm = new ManagerProfileMenu();
-	    	  mpm.getMenu();
+	    	  CustomerProfileMenu cpm = new CustomerProfileMenu();
+	    	  cpm.getMenu();
 	    	  
 	      }
 
 	      else if (s.equalsIgnoreCase("b")) {
 	       
+	    	  CustomerCheckingAccountMenu ccam = new CustomerCheckingAccountMenu();
+	    	  ccam.getMenu();
 	    	  
 	      }
 
 	      else if (s.equalsIgnoreCase("c")) {
 	    	  
+	    	  CustomerSavingsAccountMenu csam = new CustomerSavingsAccountMenu();
+	    	  csam.getMenu();
 	    	 
 	        
 	      }
 	      
 	      else if (s.equalsIgnoreCase("d")) {
 		        
-	    	  
+	    	  CustomerTransferMenu ctm = new CustomerTransferMenu();
+	    	  ctm.getMenu();
 		      }
 	      
 	      else if (s.equalsIgnoreCase("e")) {
 		        
-	    	  
+	    	  CustomerApplicationMenu cam = new CustomerApplicationMenu();
+	    	  cam.getMenu();
 	      }
 	      
 	      else if (s.equalsIgnoreCase("f")) {

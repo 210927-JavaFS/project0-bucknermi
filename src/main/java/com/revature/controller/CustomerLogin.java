@@ -16,7 +16,7 @@ public void getLogin() {
 		
 		password = scanner1.nextLine();
 		
-		scanner1.close();
+		
 		
 		if(true) {
 		 CustomerMainMenu cmm = new CustomerMainMenu();
