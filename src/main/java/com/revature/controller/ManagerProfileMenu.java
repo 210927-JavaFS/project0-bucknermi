@@ -22,7 +22,8 @@ public class ManagerProfileMenu {
 
 	      else {
 	        System.out.println("\nInvalid selection. Please select a, b or c");
-	        
+	        ManagerProfileMenu mpm = new ManagerProfileMenu();
+	        mpm.getMenu();
 	      }
 
 	    }

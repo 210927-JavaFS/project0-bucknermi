@@ -22,7 +22,8 @@ public class ManagerMainMenu {
 
       else if (s.equalsIgnoreCase("b")) {
        
-    	  	
+    	  	ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
+    	  	mcam.getMenu();
     	  
       }
 

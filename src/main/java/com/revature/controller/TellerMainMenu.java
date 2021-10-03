@@ -16,7 +16,8 @@ public class TellerMainMenu implements Menu {
 
 	      if (s.equalsIgnoreCase("a")) {
 	        
-	    	  
+	    	  TellerProfileMenu tpm = new TellerProfileMenu();
+	    	  tpm.getMenu();
 	    	 
 	      }
 
@@ -28,6 +29,7 @@ public class TellerMainMenu implements Menu {
 
 	      else if (s.equalsIgnoreCase("c")) {
 	    	  
+	    	System.out.println("Exiting Program...");  
 	    	System.exit(0);
 	      }
 	  

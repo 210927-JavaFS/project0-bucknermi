@@ -24,18 +24,23 @@ public class CustomerMainMenu implements Menu {
 
 	      else if (s.equalsIgnoreCase("b")) {
 	       
+	    	  CustomerCheckingAccountMenu ccam = new CustomerCheckingAccountMenu();
+	    	  ccam.getMenu();
 	    	  
 	      }
 
 	      else if (s.equalsIgnoreCase("c")) {
 	    	  
+	    	  CustomerSavingsAccountMenu csam = new CustomerSavingsAccountMenu();
+	    	  csam.getMenu();
 	    	 
 	        
 	      }
 	      
 	      else if (s.equalsIgnoreCase("d")) {
 		        
-	    	  
+	    	  CustomerTransferMenu ctm = new CustomerTransferMenu();
+	    	  ctm.getMenu();
 		      }
 	      
 	      else if (s.equalsIgnoreCase("e")) {
