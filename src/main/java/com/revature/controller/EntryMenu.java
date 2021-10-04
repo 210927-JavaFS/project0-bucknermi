@@ -2,6 +2,10 @@ package com.revature.controller;
 
 import java.util.Scanner;
 
+import com.revature.controller.customer.CustomerLogin;
+import com.revature.controller.manager.ManagerLogin;
+import com.revature.controller.teller.TellerLogin;
+
 public class EntryMenu implements Menu{
 	
 	public void getMenu() {

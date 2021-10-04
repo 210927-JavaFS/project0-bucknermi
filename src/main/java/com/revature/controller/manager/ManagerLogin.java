@@ -1,8 +1,10 @@
-package com.revature.controller;
+package com.revature.controller.manager;
 
 import java.util.Scanner;
 
-public class CustomerLogin extends Login {
+import com.revature.controller.Login;
+
+public class ManagerLogin extends Login{
 	
 public void getLogin() {
 		
@@ -12,24 +14,21 @@ public void getLogin() {
 			
 		username = scanner1.nextLine();
 		
+		Scanner scanner2 = new Scanner(System.in);
+		
 		System.out.println("Password: ");
 		
-		password = scanner1.nextLine();
+		password = scanner2.nextLine();
 		
 		
 		
 		if(true) {
-		 CustomerMainMenu cmm = new CustomerMainMenu();
-		 cmm.getMenu();
-			
-			
-			
+			ManagerMainMenu mmm = new ManagerMainMenu();
+			mmm.getMenu();
 		}
 		
 	}
-	
-			
-		}
 		
-		
+	}
+
 

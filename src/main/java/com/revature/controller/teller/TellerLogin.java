@@ -1,6 +1,8 @@
-package com.revature.controller;
+package com.revature.controller.teller;
 
 import java.util.Scanner;
+
+import com.revature.controller.Login;
 
 public class TellerLogin extends Login {
 	

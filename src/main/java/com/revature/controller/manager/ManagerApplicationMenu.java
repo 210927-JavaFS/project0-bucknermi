@@ -1,6 +1,8 @@
-package com.revature.controller;
+package com.revature.controller.manager;
 
 import java.util.Scanner;
+
+import com.revature.controller.Menu;
 
 public class ManagerApplicationMenu implements Menu {
 	
