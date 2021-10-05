@@ -2,7 +2,11 @@ package com.revature.controller.teller;
 
 import java.util.Scanner;
 
-public class TellerProfileMenu {
+import com.revature.controller.Menu;
+
+public class TellerProfileMenu implements Menu {
+	
+	@Override
 	public void getMenu() {
 		
 		System.out.println("Your username and password are: \nType e to exit to main menu");

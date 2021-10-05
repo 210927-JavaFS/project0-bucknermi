@@ -6,8 +6,8 @@ import com.revature.controller.Login;
 
 public class TellerLogin extends Login {
 	
-	
-		public void getLogin() {
+	@Override
+	public void getLogin() {
 			
 			System.out.println("Please enter your username and password: \nUsername: ");
 			

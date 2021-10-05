@@ -2,8 +2,11 @@ package com.revature.controller.manager;
 
 import java.util.Scanner;
 
-public class ManagerProfileMenu {
+import com.revature.controller.Menu;
+
+public class ManagerProfileMenu implements Menu{
 	
+	@Override
 	public void getMenu() {
 		
 		System.out.println("Your username and password are: \nType e to exit to main menu");

@@ -6,6 +6,7 @@ import com.revature.controller.Menu;
 
 public class CustomerCheckingAccountMenu implements Menu{
 	
+	@Override
 	public void getMenu() {
 		
 		System.out.println("Your current balance is: type a to deposit, b to withdraw or c to exit to main menu");
