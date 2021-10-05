@@ -7,3 +7,6 @@
 11:19:11.021 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 11:23:28.617 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 >>>>>>> Stashed changes
+14:49:43.007 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+14:49:58.284 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+14:50:06.124 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed

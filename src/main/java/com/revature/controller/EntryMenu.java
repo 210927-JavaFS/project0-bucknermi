@@ -21,8 +21,8 @@ public class EntryMenu implements Menu{
 		
 		
 		 System.out.println(
-			        "Hello and welcome to the Bank. Select your login level from the options below or type D "
-			        + "to exit \nA. Manager \nB. Teller \nC. Customer \nD. Exit ");
+			        "Hello and welcome to the Bank. Select your login level from the options below or type E "
+			        + "to exit \nA. Manager \nB. Teller \nC. Customer \nD. Register for new account \nE. Exit ");
 		 
 		 	log.info("Entry menu accessed");
 
@@ -52,7 +52,16 @@ public class EntryMenu implements Menu{
 			        
 			      }
 			      
-			      else if (s.equalsIgnoreCase("d")) {
+			      	else if (s.equalsIgnoreCase("d")) {
+			    	  
+			    	  Registration r = new Registration();
+			    	  r.register();
+			        
+			      }
+			      
+			      
+			      
+			      else if (s.equalsIgnoreCase("e")) {
 			    	  System.out.println("Exiting Program...");
 				        System.exit(0);
 				      }
