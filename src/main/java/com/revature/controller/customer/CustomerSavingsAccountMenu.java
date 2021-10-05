@@ -2,9 +2,12 @@ package com.revature.controller.customer;
 
 import java.util.Scanner;
 
-public class CustomerSavingsAccountMenu {
-	
-public void getMenu() {
+import com.revature.controller.Menu;
+
+public class CustomerSavingsAccountMenu implements Menu{
+
+	@Override
+	public void getMenu() {
 		
 		System.out.println("Your current balance is: type a to deposit, b to withdraw or c to exit to main menu");
 		  Scanner scanner = new Scanner(System.in);

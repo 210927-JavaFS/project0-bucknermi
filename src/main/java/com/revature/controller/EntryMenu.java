@@ -6,12 +6,25 @@ import com.revature.controller.customer.CustomerLogin;
 import com.revature.controller.manager.ManagerLogin;
 import com.revature.controller.teller.TellerLogin;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
+
+
+
 public class EntryMenu implements Menu{
 	
+
+	private static Logger log = LoggerFactory.getLogger(EntryMenu.class);
 	public void getMenu() {
 		
+		
+		
 		 System.out.println(
-			        "Hello and welcome to the Bank. Select your login level from the options below or type D to exit \nA. Manager \nB. Teller \nC. Customer \nD. Exit ");
+			        "Hello and welcome to the Bank. Select your login level from the options below or type D "
+			        + "to exit \nA. Manager \nB. Teller \nC. Customer \nD. Exit ");
+		 
+		 	log.info("Entry menu accessed");
 
 			    Scanner scanner = new Scanner(System.in);
 
