@@ -1,9 +1,12 @@
-package com.revature.controller;
+package com.revature.controller.customer;
 
 import java.util.Scanner;
 
+import com.revature.controller.Menu;
+
 public class CustomerMainMenu implements Menu {
 	
+	@Override
 	public void getMenu() {
 		
 		System.out.println("Hello and welcome to your account homepage. Please select an option from below:"

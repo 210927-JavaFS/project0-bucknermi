@@ -1,9 +1,12 @@
-package com.revature.controller;
+package com.revature.controller.customer;
 
 import java.util.Scanner;
 
-public class CustomerCheckingAccountMenu implements Menu{
-	
+import com.revature.controller.Menu;
+
+public class CustomerSavingsAccountMenu implements Menu{
+
+	@Override
 	public void getMenu() {
 		
 		System.out.println("Your current balance is: type a to deposit, b to withdraw or c to exit to main menu");
@@ -35,13 +38,14 @@ public class CustomerCheckingAccountMenu implements Menu{
 
 		      else {
 		        System.out.println("\nInvalid selection. Please select a, b or c");
-		        CustomerCheckingAccountMenu ccam = new CustomerCheckingAccountMenu();
-		        ccam.getMenu();
+		        CustomerSavingsAccountMenu csam = new CustomerSavingsAccountMenu();
+		        csam.getMenu();
 		      }
 
 		    }
 		    
 		    scanner.close();
 	}
-	
+
+
 }

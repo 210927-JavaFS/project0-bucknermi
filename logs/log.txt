@@ -1,0 +1,2 @@
+
+19:59:25.102 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed

@@ -1,4 +1,4 @@
-package com.revature.controller;
+package com.revature.controller.teller;
 
 import java.util.Scanner;
 

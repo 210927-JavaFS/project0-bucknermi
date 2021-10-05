@@ -1,10 +1,13 @@
-package com.revature.controller;
+package com.revature.controller.customer;
 
 import java.util.Scanner;
 
+import com.revature.controller.Login;
+
 public class CustomerLogin extends Login {
-	
-public void getLogin() {
+
+	@Override
+	public void getLogin() {
 		
 		System.out.println("Please enter your username and password: \nUsername: ");
 		
