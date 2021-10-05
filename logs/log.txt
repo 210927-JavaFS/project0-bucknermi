@@ -2,3 +2,8 @@
 19:59:25.102 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 20:08:49.477 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 11:15:46.360 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+<<<<<<< Updated upstream
+=======
+11:19:11.021 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+11:23:28.617 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+>>>>>>> Stashed changes
