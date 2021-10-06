@@ -10,7 +10,7 @@ public class TellerMainMenu implements Menu {
 	public void getMenu() {
 		
 		System.out.println("Hello and welcome to your account homepage. Please select an option from below:"
-				+ "\nA. Personal Profile Information \nB. Customer Accounts \nC. Exit ");
+				+ "\nA. Personal Profile Information \nB. Edit customer accounts \nC. Exit ");
 		
 		Scanner scanner2 = new Scanner(System.in);
 
