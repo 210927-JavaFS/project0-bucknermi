@@ -54,8 +54,7 @@ public class EntryMenu implements Menu{
 			      
 			      	else if (s.equalsIgnoreCase("d")) {
 			    	  
-			    	  Registration r = new Registration();
-			    	  r.register();
+			    	
 			        
 			      }
 			      
