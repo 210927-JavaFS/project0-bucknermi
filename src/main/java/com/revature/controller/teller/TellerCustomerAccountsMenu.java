@@ -9,7 +9,7 @@ public class TellerCustomerAccountsMenu implements Menu{
 	@Override
 	public void getMenu() {
 	
-	System.out.println("Enter the name of the customer whose account you would like to edit or type e to exit to main menu: "); 
+	System.out.println("Enter the ID number of the account you would like to edit or type e to exit to main menu: "); 
 	   Scanner scanner = new Scanner(System.in);
 
 	    while (scanner.hasNext() == true) {
