@@ -1,15 +1,12 @@
-package com.revature.controller.teller;
+package com.revature.controller.manager;
 
 import java.util.Scanner;
-
 
 import com.revature.controller.InputMenu;
 
 
-
-public class TellerAccountEditMenu implements InputMenu {
-	
-	public void getMenu(int x) {
+public class ManagerAccountEditMenu implements InputMenu { 
+public void getMenu(int x) {
 		
 		System.out.println("Account ID:  , Account username:  ,Account type:  , Account balance:   "
 				+ "\nChoose from one of the options below: /nA: Deposit /nB: Withdraw /nC: Transfer funds "
@@ -37,8 +34,8 @@ public class TellerAccountEditMenu implements InputMenu {
 	      }
 	      
 	      	else if (s.equalsIgnoreCase("d")) {
-	    	  TellerMainMenu tmm = new TellerMainMenu();
-	    	  tmm.getMenu();
+	    	  ManagerMainMenu mmm = new ManagerMainMenu();
+	    	  mmm.getMenu();
 	    	 
 	        
 	      }
@@ -49,8 +46,8 @@ public class TellerAccountEditMenu implements InputMenu {
 
 	      else {
 	        System.out.println("\nInvalid selection. Please select a, b or c");
-	        TellerAccountEditMenu taem = new TellerAccountEditMenu();
-	        taem.getMenu(x);
+	        ManagerAccountEditMenu maem = new ManagerAccountEditMenu();
+	        maem.getMenu(x);
 	      }
 
 	    }
@@ -58,6 +55,5 @@ public class TellerAccountEditMenu implements InputMenu {
 	    scanner.close();
 		
 	}
-	
 
 }
