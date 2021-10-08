@@ -2,13 +2,16 @@ package com.revature.controller.manager;
 
 import java.util.Scanner;
 
+import com.revature.controller.AccountController;
 import com.revature.controller.Menu;
 
 public class ManagerCustomerAccountsMenu implements Menu { 
 	
 	@Override
 	public void getMenu() {
-		
+		System.out.println("Customer account information is: ");
+		AccountController a = new AccountController();
+		a.displayAllAccounts();
 		System.out.println("Enter the name of the customer whose account you would like to edit or type e to exit to main menu: "); 
 		   Scanner scanner = new Scanner(System.in);
 

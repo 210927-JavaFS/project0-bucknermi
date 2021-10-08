@@ -54,7 +54,6 @@ public class EntryMenu implements Menu{
 			      
 			      	else if (s.equalsIgnoreCase("d")) {
 			    	  
-			    	 
 			        
 			      }
 			      
