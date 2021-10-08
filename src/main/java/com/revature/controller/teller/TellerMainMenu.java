@@ -7,7 +7,7 @@ import com.revature.controller.Menu;
 public class TellerMainMenu implements Menu {
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
 		System.out.println("Hello and welcome to your account homepage. Please select an option from below:"
 				+ "\nA. Personal Profile Information \nB. Edit customer accounts \nC. Exit ");
@@ -20,14 +20,14 @@ public class TellerMainMenu implements Menu {
 	      if (s.equalsIgnoreCase("a")) {
 	        
 	    	  TellerProfileMenu tpm = new TellerProfileMenu();
-	    	  tpm.getMenu();
+	    	  tpm.getMenu(username, password);
 	    	 
 	      }
 
 	      else if (s.equalsIgnoreCase("b")) {
 	       
 	    	  	TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
-	    	  	tcam.getMenu();
+	    	  	tcam.getMenu(username, password);
 	    	  
 	      }
 
@@ -41,7 +41,7 @@ public class TellerMainMenu implements Menu {
 	        System.out.println("\nInvalid selection. Please select a, b or c");
 	        
 	        TellerMainMenu tmm = new TellerMainMenu();
-	        tmm.getMenu();
+	        tmm.getMenu(username, password);
 	      }
 
 	    }

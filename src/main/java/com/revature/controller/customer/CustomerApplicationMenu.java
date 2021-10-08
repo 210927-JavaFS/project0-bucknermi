@@ -7,7 +7,7 @@ import com.revature.controller.Menu;
 public class CustomerApplicationMenu implements Menu {
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
 		System.out.println("Your past account request results are:  Type a to request a new checking account, "
 				+ "b to request a new savings account and e to exit:");
@@ -20,13 +20,13 @@ public class CustomerApplicationMenu implements Menu {
 		      if (s.equalsIgnoreCase("e")) {
 		    	  
 		    	  CustomerMainMenu cmm = new CustomerMainMenu();
-		    	  cmm.getMenu();
+		    	  cmm.getMenu(username, password);
 			      }
 
 		      else {
 		        System.out.println("\nInvalid selection. Please select a, b or e");
 		        CustomerApplicationMenu cpm = new CustomerApplicationMenu();
-		        cpm.getMenu();
+		        cpm.getMenu(username, password);
 		      }
 
 		    }

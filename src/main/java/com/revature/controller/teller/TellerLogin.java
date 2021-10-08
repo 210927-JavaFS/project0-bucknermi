@@ -29,13 +29,13 @@ public class TellerLogin extends Login {
 			if(x) {
 				System.out.println("Succesful login. Redirecting to your main menu");
 				TellerMainMenu tmm = new TellerMainMenu();
-				tmm.getMenu();
+				tmm.getMenu(username, password);
 			}
 			
 			else {
 				System.out.println("Incorrect username and password combination. Returning to main menu");
 				EntryMenu em = new EntryMenu();
-				em.getMenu();
+				em.getMenu(username, password);
 			}
 			
 		}

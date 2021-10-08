@@ -8,7 +8,7 @@ import com.revature.controller.Menu;
 public class ManagerCustomerAccountsMenu implements Menu { 
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		System.out.println("Customer account information is: ");
 		AccountController a = new AccountController();
 		a.displayAllAccounts();
@@ -22,19 +22,19 @@ public class ManagerCustomerAccountsMenu implements Menu {
 		        
 		    	  
 		    	  ManagerMainMenu mmm = new ManagerMainMenu();
-		    	  mmm.getMenu();
+		    	  mmm.getMenu(username, password);
 		        
 		      }
 		     
 		      else if (s.equalsIgnoreCase("e")) {
 		    	  ManagerMainMenu mmm = new ManagerMainMenu();
-		    	  mmm.getMenu();
+		    	  mmm.getMenu(username, password);
 			      }
 
 		      else {
 		        System.out.println("\nInvalid selection. Please select a valid customer name");
 		        ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
-		        mcam.getMenu();
+		        mcam.getMenu(username, password);
 		      }
 
 		    }

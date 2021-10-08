@@ -23,7 +23,7 @@ public class Registration {
 		scanner1.close();
 		
 		EntryMenu em = new EntryMenu();
-		em.getMenu();
+		em.getMenu("none", "nones");
 		
 	}
 

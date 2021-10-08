@@ -7,7 +7,7 @@ import com.revature.controller.Menu;
 public class CustomerMainMenu implements Menu {
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
 		System.out.println("Hello and welcome to your account homepage. Please select an option from below:"
 				+ "\nA. Personal Profile Information \nB. Checking Account \nC. Savings Account \nD. Transfer Funds \nE. Apply to open account "
@@ -21,21 +21,21 @@ public class CustomerMainMenu implements Menu {
 	      if (s.equalsIgnoreCase("a")) {
 	        
 	    	  CustomerProfileMenu cpm = new CustomerProfileMenu();
-	    	  cpm.getMenu();
+	    	  cpm.getMenu(username, password);
 	    	  
 	      }
 
 	      else if (s.equalsIgnoreCase("b")) {
 	       
 	    	  CustomerCheckingAccountMenu ccam = new CustomerCheckingAccountMenu();
-	    	  ccam.getMenu();
+	    	  ccam.getMenu(username, password);
 	    	  
 	      }
 
 	      else if (s.equalsIgnoreCase("c")) {
 	    	  
 	    	  CustomerSavingsAccountMenu csam = new CustomerSavingsAccountMenu();
-	    	  csam.getMenu();
+	    	  csam.getMenu(username, password);
 	    	 
 	        
 	      }
@@ -43,13 +43,13 @@ public class CustomerMainMenu implements Menu {
 	      else if (s.equalsIgnoreCase("d")) {
 		        
 	    	  CustomerTransferMenu ctm = new CustomerTransferMenu();
-	    	  ctm.getMenu();
+	    	  ctm.getMenu(username, password);
 		      }
 	      
 	      else if (s.equalsIgnoreCase("e")) {
 		        
 	    	  CustomerApplicationMenu cam = new CustomerApplicationMenu();
-	    	  cam.getMenu();
+	    	  cam.getMenu(username, password);
 	      }
 	      
 	      else if (s.equalsIgnoreCase("f")) {
@@ -60,7 +60,7 @@ public class CustomerMainMenu implements Menu {
 	      else {
 	        System.out.println("\nInvalid selection. Please select a, b, c, d, e or f");
 	        CustomerMainMenu cmm = new CustomerMainMenu();
-	        cmm.getMenu();
+	        cmm.getMenu(username, password);
 	      }
 
 	    }

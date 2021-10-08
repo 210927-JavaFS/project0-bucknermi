@@ -7,7 +7,7 @@ import com.revature.controller.Menu;
 public class ManagerApplicationMenu implements Menu {
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
 		System.out.println("Your pending application requests are: Enter the request ID and approve or deny, or type e to exit");
 		
@@ -18,13 +18,13 @@ public class ManagerApplicationMenu implements Menu {
 
 		  if (s.equalsIgnoreCase("e")) {
 		    	 ManagerMainMenu mmm = new ManagerMainMenu();
-		    	 mmm.getMenu();
+		    	 mmm.getMenu(username, password);
 			      }
 
 		      else {
 		        System.out.println("\nInvalid selection. Please select e");
 		       ManagerApplicationMenu mam = new ManagerApplicationMenu();
-		       mam.getMenu();
+		       mam.getMenu(username, password);
 		      }
 
 		    }

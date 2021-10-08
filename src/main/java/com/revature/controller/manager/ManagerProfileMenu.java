@@ -7,7 +7,7 @@ import com.revature.controller.Menu;
 public class ManagerProfileMenu implements Menu{
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
 		System.out.println("Your username and password are: \nType e to exit to main menu");
 		
@@ -18,7 +18,7 @@ public class ManagerProfileMenu implements Menu{
 
 	      if (s.equalsIgnoreCase("e")) {
 	    	  ManagerMainMenu mmm = new ManagerMainMenu();
-	          mmm.getMenu();
+	          mmm.getMenu(username, password);
 	    	  
 	      }
 
@@ -26,7 +26,7 @@ public class ManagerProfileMenu implements Menu{
 	      else {
 	        System.out.println("\nInvalid selection. Please select a, b or c");
 	        ManagerProfileMenu mpm = new ManagerProfileMenu();
-	        mpm.getMenu();
+	        mpm.getMenu(username, password);
 	      }
 
 	    }

@@ -2,7 +2,7 @@ package com.revature.controller;
 
 public interface Menu {
 	
-	void getMenu();
+	void getMenu(String username, String password);
 	
 	
 

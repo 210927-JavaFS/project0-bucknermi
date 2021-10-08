@@ -7,7 +7,7 @@ import com.revature.controller.Menu;
 public class TellerCustomerAccountsMenu implements Menu{
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 	
 	System.out.println("Enter the ID number of the account you would like to edit or type e to exit to main menu: "); 
 	   Scanner scanner = new Scanner(System.in);
@@ -19,19 +19,19 @@ public class TellerCustomerAccountsMenu implements Menu{
 	        
 	    	  
 	    	  TellerMainMenu tmm = new TellerMainMenu();
-	    	  tmm.getMenu();
+	    	  tmm.getMenu(username, password);
 	        
 	      }
 	     
 	      else if (s.equalsIgnoreCase("e")) {
 	    	  TellerMainMenu tmm = new TellerMainMenu();
-	    	  tmm.getMenu();
+	    	  tmm.getMenu(username, password);
 		      }
 
 	      else {
 	        System.out.println("\nInvalid selection. Please select a valid customer name");
 	        TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
-	        tcam.getMenu();
+	        tcam.getMenu(username, password);
 	      }
 
 	    }

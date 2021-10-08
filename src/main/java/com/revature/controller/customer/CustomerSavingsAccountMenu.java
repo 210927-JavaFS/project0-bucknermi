@@ -7,7 +7,7 @@ import com.revature.controller.Menu;
 public class CustomerSavingsAccountMenu implements Menu{
 
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
 		System.out.println("Your current balance is: type a to deposit, b to withdraw or c to exit to main menu");
 		  Scanner scanner = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class CustomerSavingsAccountMenu implements Menu{
 		      else if (s.equalsIgnoreCase("c")) {
 		    	  
 		    	CustomerMainMenu cmm = new CustomerMainMenu();
-		    	cmm.getMenu();
+		    	cmm.getMenu(username, password);
 		        
 		      }
 		      
@@ -39,7 +39,7 @@ public class CustomerSavingsAccountMenu implements Menu{
 		      else {
 		        System.out.println("\nInvalid selection. Please select a, b or c");
 		        CustomerSavingsAccountMenu csam = new CustomerSavingsAccountMenu();
-		        csam.getMenu();
+		        csam.getMenu(username, password);
 		      }
 
 		    }

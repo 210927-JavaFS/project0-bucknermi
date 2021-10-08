@@ -16,7 +16,7 @@ public class EntryMenu implements Menu{
 	
 
 	private static Logger log = LoggerFactory.getLogger(EntryMenu.class);
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
 		
 		
@@ -67,7 +67,7 @@ public class EntryMenu implements Menu{
 			      else {
 			        System.out.println("\nInvalid selection. Please select a, b or c");
 			        EntryMenu em = new EntryMenu();
-			        em.getMenu();
+			        em.getMenu("none", "none");
 			      }
 
 			    }
