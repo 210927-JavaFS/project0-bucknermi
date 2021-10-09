@@ -24,6 +24,14 @@ public class Account {
 		this.teller = teller;
 		this.activated=activated;
 	}
+	
+	
+
+	public Account(int account_id, int balance) {
+		super();
+		this.account_id = account_id;
+		this.balance = balance;
+	}
 
 	public Account() {
 		super();

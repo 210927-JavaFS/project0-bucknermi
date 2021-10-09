@@ -121,7 +121,7 @@ public class AccountDAOImpl implements AccountDAO {
 
 	@Override
 	public int withdrawByID(int account_id, int deposit) {
-	
+
 		AccountService as = new AccountService();
 		int x = as.getBalanceID(account_id);
 		SingleAccountService sas = new SingleAccountService();
@@ -169,7 +169,7 @@ public class AccountDAOImpl implements AccountDAO {
 
 		}
 		return 0;
-		
-		
+
 	}
+
 }

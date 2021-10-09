@@ -3,13 +3,17 @@ package com.revature.controller.customer;
 import java.util.Scanner;
 
 import com.revature.controller.Menu;
+import com.revature.service.AccountService;
 
 public class CustomerAccountMenu implements Menu{
 	
 	@Override
 	public void getMenu(String username, String password) {
 		
-		System.out.println("Your current balance is: type a to deposit, b to withdraw or c to exit to main menu");
+		AccountService as = new AccountService();
+		int initial_balance = as.getBalanceUsername(username);
+		System.out.println("Your current balance is: "+initial_balance+ " type a to deposit, b to withdraw or c" 
+				+ "to exit to main menu");
 		  Scanner scanner = new Scanner(System.in);
 
 		    while (scanner.hasNext() == true) {
