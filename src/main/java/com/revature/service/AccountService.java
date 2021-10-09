@@ -29,5 +29,9 @@ public class AccountService {
 	public int makeWithdrawByID(int account_id, int withdraw) {
 		return accountDAO.withdrawByID(account_id, withdraw);
 	}
+	
+	public int getBalanceUsername(String username) {
+		return accountDAO.balanceByUsername(username);
+	}
  
 }

@@ -146,4 +146,30 @@ public class AccountDAOImpl implements AccountDAO {
 		}
 		return 0;
 	}
+
+	@Override
+	public int balanceByUsername(String username) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "SELECT balance FROM account WHERE username = ?;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, username);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				int x = result.getInt("balance");
+				return x;
+			}
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return 0;
+		
+		
+	}
 }
