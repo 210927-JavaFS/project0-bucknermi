@@ -21,5 +21,9 @@ public class AccountService {
 	public boolean getExistByID(int account_id) {
 		return accountDAO.existByID(account_id);
 	}
+	
+	public int makeDepositByID(int account_id, int deposit) {
+		return accountDAO.depositByID(account_id, deposit);
+	}
 
 }

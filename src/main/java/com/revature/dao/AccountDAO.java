@@ -9,5 +9,6 @@ public interface AccountDAO {
 	public List<Account> findAll();
 	public int balanceByID(int account_id);
 	public boolean existByID(int account_id);
+	public int depositByID(int account_id, int deposit);
 
 }

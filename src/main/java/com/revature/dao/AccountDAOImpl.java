@@ -10,6 +10,8 @@ import java.util.List;
 
 import com.revature.controller.Connections;
 import com.revature.model.Account;
+import com.revature.service.AccountService;
+import com.revature.service.SingleAccountService;
 
 
 
@@ -94,6 +96,39 @@ public class AccountDAOImpl implements AccountDAO{
 		}
 		
 		return false;
+		
+	}
+
+	@Override
+	public int depositByID(int account_id, int deposit) {
+		AccountService as = new AccountService();
+		int x = as.getBalanceID(account_id);
+		SingleAccountService sas = new SingleAccountService();
+		int y = sas.deposit(x, deposit);
+		try(Connection conn = Connections.getConnection()) { //try-with-resources
+			String sql = "UPDATE account SET balance = ? WHERE account_id = ?;";
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			statement.setInt(1, y);
+			statement.setInt(2, account_id);
+			
+			
+			ResultSet result = statement.executeQuery();
+			
+			return y;
+			
+			}
+			
+			 
+			
+		catch(SQLException e) {
+			e.printStackTrace();
+		
+		
+	}
+		return 0;
+
 		
 	}
 }
