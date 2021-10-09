@@ -2,6 +2,8 @@ package com.revature.controller;
 
 import java.util.Scanner;
 
+import com.revature.service.AccountService;
+
 public class Registration {
 	
 	public String newUsername;
@@ -20,10 +22,22 @@ public class Registration {
 		
 		newPassword = scanner1.nextLine();
 		
-		scanner1.close();
+		AccountService as = new AccountService();
+		
+		if(as.newUsername(newUsername)) {
+			as.newLogin(newUsername, newPassword);
+			System.out.println("\nLogin creation successful, returning to main menu...");
+		}
+		else {
+			System.out.println("\nThis username is already taken account creation failed returning to main menu...");
+			
+		}
+		
+		
+		
 		
 		EntryMenu em = new EntryMenu();
-		em.getMenu();
+		em.getMenu("none", "none");
 		
 	}
 

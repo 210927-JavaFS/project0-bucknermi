@@ -2,7 +2,9 @@ package com.revature.controller.manager;
 
 import java.util.Scanner;
 
+import com.revature.controller.EntryMenu;
 import com.revature.controller.Login;
+import com.revature.service.ManagerLoginService;
 
 public class ManagerLogin extends Login{
 
@@ -21,11 +23,18 @@ public class ManagerLogin extends Login{
 		
 		password = scanner2.nextLine();
 		
+		ManagerLoginService mls = new ManagerLoginService();
+		boolean x = mls.testLogin(username, password);
 		
-		
-		if(true) {
+		if(x) {
+			System.out.println("Succesful login. Redirecting to your main menu");
 			ManagerMainMenu mmm = new ManagerMainMenu();
-			mmm.getMenu();
+			mmm.getMenu(username, password);
+		}
+		else {
+			System.out.println("Incorrect username and password combination. Returning to main menu");
+			EntryMenu em = new EntryMenu();
+			em.getMenu(username, password);
 		}
 		
 	}

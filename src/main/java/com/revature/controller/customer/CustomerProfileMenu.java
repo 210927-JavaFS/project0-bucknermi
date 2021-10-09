@@ -7,9 +7,10 @@ import com.revature.controller.Menu;
 public class CustomerProfileMenu implements Menu {
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 	
-	System.out.println("Your username and password are: \nType e to exit to main menu");
+	System.out.println("Your username is: " +username+ " and your password is: " +password+ 
+			"\nType e to exit to main menu");
 	
 	Scanner scanner = new Scanner(System.in);
 
@@ -18,7 +19,7 @@ public class CustomerProfileMenu implements Menu {
 
       if (s.equalsIgnoreCase("e")) {
     	  CustomerMainMenu cmm = new CustomerMainMenu();
-          cmm.getMenu();
+          cmm.getMenu(username, password);
     	  
       }
 
@@ -26,7 +27,7 @@ public class CustomerProfileMenu implements Menu {
       else {
         System.out.println("\nInvalid selection. Please select a, b or c");
         CustomerProfileMenu cpm = new CustomerProfileMenu();
-        cpm.getMenu();
+        cpm.getMenu(username, password);
       }
 
     }

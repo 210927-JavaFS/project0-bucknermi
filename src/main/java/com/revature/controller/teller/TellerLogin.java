@@ -2,7 +2,9 @@ package com.revature.controller.teller;
 
 import java.util.Scanner;
 
+import com.revature.controller.EntryMenu;
 import com.revature.controller.Login;
+import com.revature.service.TellerLoginService;
 
 public class TellerLogin extends Login {
 	
@@ -15,16 +17,25 @@ public class TellerLogin extends Login {
 				
 			username = scanner1.nextLine();
 			
+			Scanner scanner2 = new Scanner(System.in);
+			
 			System.out.println("Password: ");
 			
-			password = scanner1.nextLine();
+			password = scanner2.nextLine();
 			
+			TellerLoginService tls = new TellerLoginService();
+			boolean x = tls.testLogin(username, password);
 			
-			
-			if(true) {
-				
+			if(x) {
+				System.out.println("Succesful login. Redirecting to your main menu");
 				TellerMainMenu tmm = new TellerMainMenu();
-				tmm.getMenu();
+				tmm.getMenu(username, password);
+			}
+			
+			else {
+				System.out.println("Incorrect username and password combination. Returning to main menu");
+				EntryMenu em = new EntryMenu();
+				em.getMenu(username, password);
 			}
 			
 		}

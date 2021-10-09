@@ -7,10 +7,10 @@ import com.revature.controller.Menu;
 public class ManagerMainMenu implements Menu {
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 	
 	System.out.println("\nHello and welcome to your account homepage. Please select an option from below:"
-			+ "\nA. Personal profile information \nB. Edit customer accounts \nC. Review account requests \nD. Exit ");
+			+ "\nA. Personal profile information \nB. View/Edit customer accounts \nC. Review account requests \nD. Exit ");
 	
 	Scanner scanner3 = new Scanner(System.in);
 
@@ -19,21 +19,21 @@ public class ManagerMainMenu implements Menu {
 
       if (s.equalsIgnoreCase("a")) {
     	  ManagerProfileMenu mpm = new ManagerProfileMenu();
-	       mpm.getMenu();
+	       mpm.getMenu(username, password);
     	  
       }
 
       else if (s.equalsIgnoreCase("b")) {
        
     	  	ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
-    	  	mcam.getMenu();
+    	  	mcam.getMenu(username, password);
     	  
       }
 
       else if (s.equalsIgnoreCase("c")) {
     	  
     	  ManagerApplicationMenu mam = new ManagerApplicationMenu();
-    	  mam.getMenu();
+    	  mam.getMenu(username, password);
         
       }
       
@@ -47,7 +47,7 @@ public class ManagerMainMenu implements Menu {
       else {
         System.out.println("\nInvalid selection. Please select a, b or c");
         ManagerMainMenu mmm = new ManagerMainMenu();
-        mmm.getMenu();
+        mmm.getMenu(username, password);
       }
 
     }

@@ -2,14 +2,19 @@ package com.revature.controller.manager;
 
 import java.util.Scanner;
 
+import com.revature.controller.AccountController;
 import com.revature.controller.Menu;
+import com.revature.service.AccountService;
 
 public class ManagerApplicationMenu implements Menu {
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
-		System.out.println("Your pending application requests are: Enter the request ID and approve or deny, or type e to exit");
+		System.out.println("Your pending application requests are below Enter the request ID to approve or delete account request, or type e to exit");
+		
+		AccountController ac = new AccountController();
+		ac.displayByActivated();
 		
 		  Scanner scanner = new Scanner(System.in);
 
@@ -18,19 +23,62 @@ public class ManagerApplicationMenu implements Menu {
 
 		  if (s.equalsIgnoreCase("e")) {
 		    	 ManagerMainMenu mmm = new ManagerMainMenu();
-		    	 mmm.getMenu();
+		    	 mmm.getMenu(username, password);
 			      }
+		  else {
+			  try { int account_id = Integer.parseInt(s);
+				AccountService as = new AccountService();
+				boolean y = as.getExistByID(account_id);
+				if(y) {
+					System.out.println("You have selected account with id: " +account_id);
+					System.out.println("Type a to activate account, type b to delete account or type e to exit");
+					String s1 = scanner.nextLine();
+					
+					if(s1.equalsIgnoreCase("a")) {
+						as.verifyAccount(account_id);
+						System.out.println("account has been verified returning to your main menu...");
+						ManagerMainMenu mmm = new ManagerMainMenu();
+						mmm.getMenu(username, password);
+					}
+					else if(s1.equalsIgnoreCase("b")) {
+						as.removeAccount(account_id);
+						System.out.println("account has been deleted returning to your main menu...");
+						ManagerMainMenu mmm = new ManagerMainMenu();
+						mmm.getMenu(username, password);
 
-		      else {
-		        System.out.println("\nInvalid selection. Please select e");
-		       ManagerApplicationMenu mam = new ManagerApplicationMenu();
-		       mam.getMenu();
-		      }
+					}
+					else if(s1.equalsIgnoreCase("e")) {
+						System.out.println("returning to top of menu..");
+						ManagerApplicationMenu mam = new ManagerApplicationMenu();
+						mam.getMenu(username, password);
+					}
+					else {
+						System.out.println("Invalid ID selection. Returning to top of menu...");
+						ManagerApplicationMenu mam = new ManagerApplicationMenu();
+						mam.getMenu(username, password);
+						
+					}
+					
+				}
+				else {
+					System.out.println("Invalid ID selection. Returning to top of menu...");
+					ManagerApplicationMenu mam = new ManagerApplicationMenu();
+					mam.getMenu(username, password);
+				}
+		  }
+			  catch(NumberFormatException e) {
+				  System.out.println("\nInvalid selection. Please select a valid customer id. Returning to top of menu...");
+					ManagerApplicationMenu mam = new ManagerApplicationMenu();
+					mam.getMenu(username, password);
+			  }
+
+		      
 
 		    }
 		    
-		    scanner.close();
+		    
 	}
 
 	
+}
 }

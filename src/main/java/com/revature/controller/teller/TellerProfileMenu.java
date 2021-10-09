@@ -7,9 +7,10 @@ import com.revature.controller.Menu;
 public class TellerProfileMenu implements Menu {
 	
 	@Override
-	public void getMenu() {
+	public void getMenu(String username, String password) {
 		
-		System.out.println("Your username and password are: \nType e to exit to main menu");
+		System.out.println("Your username is: " +username+ " and your password is: " +password+ 
+				"\nType e to exit to main menu");
 		
 		Scanner scanner = new Scanner(System.in);
 
@@ -18,7 +19,7 @@ public class TellerProfileMenu implements Menu {
 
 	      if (s.equalsIgnoreCase("e")) {
 	    	  TellerMainMenu tmm = new TellerMainMenu();
-	    	  tmm.getMenu();
+	    	  tmm.getMenu(username, password);
 	    	  
 	      }
 
@@ -26,7 +27,7 @@ public class TellerProfileMenu implements Menu {
 	      else {
 	        System.out.println("\nInvalid selection. Please select a, b or c");
 	        TellerProfileMenu tpm = new TellerProfileMenu();
-	        tpm.getMenu();
+	        tpm.getMenu(username, password);
 	      }
 
 	    }
