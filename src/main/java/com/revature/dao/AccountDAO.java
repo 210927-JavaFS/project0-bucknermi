@@ -10,5 +10,6 @@ public interface AccountDAO {
 	public int balanceByID(int account_id);
 	public boolean existByID(int account_id);
 	public int depositByID(int account_id, int deposit);
+	public int withdrawByID(int account_id, int deposit);
 
 }
