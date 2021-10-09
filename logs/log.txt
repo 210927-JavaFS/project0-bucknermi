@@ -42,3 +42,4 @@
 20:47:55.503 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 20:48:47.619 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 20:51:42.482 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+21:03:07.454 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed

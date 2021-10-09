@@ -25,5 +25,9 @@ public class AccountService {
 	public int makeDepositByID(int account_id, int deposit) {
 		return accountDAO.depositByID(account_id, deposit);
 	}
-
+	
+	public int makeWithdrawByID(int account_id, int withdraw) {
+		return accountDAO.withdrawByID(account_id, withdraw);
+	}
+ 
 }

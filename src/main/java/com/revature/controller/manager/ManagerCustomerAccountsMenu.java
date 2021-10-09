@@ -33,7 +33,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 					boolean y = as.getExistByID(account_id);
 					if (y) {
 						int z = as.getBalanceID(account_id);
-						System.out.println("Current balance is" + z);
+						System.out.println("Current balance is " + z);
 						System.out.println("A. Deposit \nB. Withdraw \nC. Transfer \nD. Exit to your maine menu");
 						Scanner scanner3 = new Scanner(System.in);
 
@@ -45,10 +45,19 @@ public class ManagerCustomerAccountsMenu implements Menu {
 								System.out.println("Enter the amount you would like to deposit:");
 								int deposit = scanner3.nextInt();
 								as.makeDepositByID(account_id, deposit);
-								System.out.println(as.getBalanceID(account_id));
+								System.out.println("New balance is: " +as.getBalanceID(account_id) +" Returning to your main menu...");
+								ManagerMainMenu mmm = new ManagerMainMenu();
+								mmm.getMenu(username, password);
 							}
 
 							else if (s1.equalsIgnoreCase("b")) {
+								
+								System.out.println("Enter the amount you would like to withdraw:");
+								int withdraw = scanner3.nextInt();
+								as.makeWithdrawByID(account_id, withdraw);
+								System.out.println("New balance is: " +as.getBalanceID(account_id) +" Returning to your main menu...");
+								ManagerMainMenu mmm = new ManagerMainMenu();
+								mmm.getMenu(username, password);
 
 							}
 

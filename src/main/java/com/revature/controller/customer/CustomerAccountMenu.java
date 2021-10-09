@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.revature.controller.Menu;
 
-public class CustomerCheckingAccountMenu implements Menu{
+public class CustomerAccountMenu implements Menu{
 	
 	@Override
 	public void getMenu(String username, String password) {
@@ -38,8 +38,8 @@ public class CustomerCheckingAccountMenu implements Menu{
 
 		      else {
 		        System.out.println("\nInvalid selection. Please select a, b or c");
-		        CustomerCheckingAccountMenu ccam = new CustomerCheckingAccountMenu();
-		        ccam.getMenu(username, password);
+		        CustomerAccountMenu cam = new CustomerAccountMenu();
+		        cam.getMenu(username, password);
 		      }
 
 		    }
