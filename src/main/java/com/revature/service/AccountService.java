@@ -61,5 +61,9 @@ public class AccountService {
 	public boolean removeAccount(int account_id) {
 		return accountDAO.deleteAccount(account_id);
 	}
+	
+	public int getIDByUsername(String username) {
+		return accountDAO.IDByUsername(username);
+	}
  
 }

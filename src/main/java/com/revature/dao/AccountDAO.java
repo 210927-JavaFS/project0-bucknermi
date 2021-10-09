@@ -19,6 +19,7 @@ public interface AccountDAO {
 	public List<Account> accountRequests();
 	public boolean activateAccount(int account_id);
 	public boolean deleteAccount(int account_id);
+	public int IDByUsername(String username);
 	
 	
 }

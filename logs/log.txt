@@ -88,3 +88,17 @@
 14:17:26.328 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 14:18:22.893 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 14:25:17.632 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+16:46:19.698 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:48:54.668 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:51:41.233 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:51:45.172 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete
+16:51:54.347 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:51:59.077 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete
+16:57:24.570 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:57:28.443 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete
+17:06:17.040 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests, this serves as a test for thecreateAccount method
+17:06:22.236 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete. This serves as a test for thedeleteAccount method
+17:06:59.148 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests, this serves as a test for thecreateAccount method
+17:07:04.907 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete. This serves as a test for thedeleteAccount method
+17:08:38.563 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests, this is a test for the createAccount method
+17:08:44.071 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete. This is a test for the deleteAccount method
