@@ -17,5 +17,6 @@ public interface AccountDAO {
 	public boolean uniqueUsername(String username);
 	public boolean createLogin(String newUsername, String newPassword);
 	public List<Account> accountRequests();
+	public boolean activateAccount(int account_ids);
 	
 }

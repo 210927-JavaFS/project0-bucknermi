@@ -53,5 +53,9 @@ public class AccountService {
 	public List<Account> findAllActivated() {
 		return accountDAO.accountRequests();
 	}
+	
+	public boolean verifyAccount(int account_id) {
+		return accountDAO.activateAccount(account_id);
+	}
  
 }

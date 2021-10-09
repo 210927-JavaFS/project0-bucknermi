@@ -311,6 +311,31 @@ public class AccountDAOImpl implements AccountDAO {
 		
 		return null;
 	}
+
+	@Override
+	public boolean activateAccount(int account_id) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "UPDATE account SET activated = true WHERE account_id = ?;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setInt(1, account_id);
+			
+
+		
+			statement.execute();
+			return true;
+				
+			}
+		
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return false;
+		
+	}
 	
 	
 }
