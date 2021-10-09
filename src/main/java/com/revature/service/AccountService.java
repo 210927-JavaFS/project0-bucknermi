@@ -38,5 +38,12 @@ public class AccountService {
 		return accountDAO.verifyIdByUsername(account_id, username);
 	}
 	
+	public boolean newUsername(String username) {
+		return accountDAO.uniqueUsername(username);
+	}
+	
+	public boolean newLogin(String newUsername, String newPassword) {
+		return accountDAO.createLogin(newUsername, newPassword);
+	}
  
 }

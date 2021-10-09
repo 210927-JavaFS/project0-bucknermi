@@ -205,6 +205,61 @@ public class AccountDAOImpl implements AccountDAO {
 		return false;
 		
 	}
+
+	@Override
+	public List<Account> createAccount() {
+		
+		return null;
+	}
+
+	@Override
+	public boolean uniqueUsername(String username) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "SELECT * FROM account WHERE username = ?;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, username);
+
+			ResultSet result = statement.executeQuery();
+
+			boolean x = result.next();
+
+			return !x;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
+	@Override
+	public boolean createLogin(String newUsername, String newPassword) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "INSERT into customer_names (username, password) VALUES (? , ?) ;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, newUsername);
+			statement.setString(2, newPassword);
+
+		
+			statement.execute();
+			return true;
+				
+			}
+		
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return false;
+		
+	}
+	
+	
 }
 
 
