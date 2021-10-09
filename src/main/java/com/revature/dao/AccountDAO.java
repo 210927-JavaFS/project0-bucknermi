@@ -8,9 +8,9 @@ public interface AccountDAO {
 	
 	public List<Account> findAll();
 	public int balanceByID(int account_id);
-	public int balanceByUsername(String username);
+	public List<Account> findAllByUsername(String username);
 	public boolean existByID(int account_id);
 	public int depositByID(int account_id, int deposit);
 	public int withdrawByID(int account_id, int deposit);
-	
+	public boolean verifyIdByUsername(int account_id, String username);
 }

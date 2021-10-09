@@ -148,28 +148,63 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public int balanceByUsername(String username) {
+	public List<Account> findAllByUsername(String username) {
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
-			String sql = "SELECT balance FROM account WHERE username = ?;";
+			String sql = "SELECT * FROM account WHERE username = ?;";
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setString(1, username);
 
 			ResultSet result = statement.executeQuery();
-
-			if (result.next()) {
-				int x = result.getInt("balance");
-				return x;
+			
+			List<Account> list = new ArrayList<>();
+			
+			while (result.next()) {
+				Account account = new Account();
+				account.setAccount_id(result.getInt("account_id"));
+				account.setUsername(result.getString("username"));
+				account.setBalance(result.getInt("balance"));
+				account.setTeller(result.getString("teller"));
+				account.setActivated(result.getBoolean("activated"));
+				list.add(account);
 			}
-		}
+			return list;
+		
+			
+			}
 
 		catch (SQLException e) {
 			e.printStackTrace();
 
 		}
-		return 0;
+		
+		return null;
+		}
 
+	@Override
+	public boolean verifyIdByUsername(int account_id, String username) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "SELECT * FROM account WHERE account_id = ? AND username = ?;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setInt(1, account_id);
+			statement.setString(2,  username);
+
+			ResultSet result = statement.executeQuery();
+
+			boolean x = result.next();
+
+			return x;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return false;
+		
 	}
-
 }
+
+

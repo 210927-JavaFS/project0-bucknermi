@@ -15,5 +15,12 @@ public class AccountController {
 			System.out.println(account);
 		}
 	}
+	
+	public void displayByUsername(String username) {
+		List<Account> list = accountService.findAllUsername(username);
+		for(Account account:list) {
+		System.out.println(account);
+	}
 
+}
 }

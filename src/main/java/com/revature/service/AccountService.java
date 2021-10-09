@@ -30,10 +30,13 @@ public class AccountService {
 		return accountDAO.withdrawByID(account_id, withdraw);
 	}
 	
-	public int getBalanceUsername(String username) {
-		return accountDAO.balanceByUsername(username);
+	public List<Account> findAllUsername(String username) {
+		return accountDAO.findAllByUsername(username);
 	}
 	
+	public boolean checkIDByUsername(int account_id, String username) {
+		return accountDAO.verifyIdByUsername(account_id, username);
+	}
 	
  
 }

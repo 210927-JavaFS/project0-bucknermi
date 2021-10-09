@@ -10,7 +10,7 @@ public class CustomerMainMenu implements Menu {
 	public void getMenu(String username, String password) {
 		
 		System.out.println("Hello and welcome to your account homepage. Please select an option from below:"
-				+ "\nA. Personal Profile Information \nB. View/Edit account \nC. Apply for account "
+				+ "\nA. Personal Profile Information \nB. View/Edit your accounts \nC. Apply for account "
 				+ "\nD. Exit ");
 		
 		Scanner scanner2 = new Scanner(System.in);
