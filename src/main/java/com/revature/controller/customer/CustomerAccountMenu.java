@@ -41,7 +41,7 @@ public class CustomerAccountMenu implements Menu {
 		AccountService as = new AccountService();
 
 		if (as.checkIDByUsername(account_id, username)) {
-			System.out.println("type a to deposit, b to withdraw or c to exit to main menu");
+			System.out.println("type a to deposit, b to withdraw, c to transfer money to another account or e to exit to main menu");
 
 			while (scanner.hasNext() == true) {
 				String s = scanner.nextLine();
@@ -83,6 +83,44 @@ public class CustomerAccountMenu implements Menu {
 				}
 
 				else if (s.equalsIgnoreCase("c")) {
+					System.out.println("Enter the ID of the account you would like to transfer into: ");
+					String s2 = scanner.nextLine();
+					try {
+						int account_id2 = Integer.parseInt(s2);
+						boolean y2 = as.getExistByID(account_id2);
+						if (y2) {
+							System.out.println("Enter the amount you would like to transfer:");
+							try {
+								int transfer = scanner.nextInt();
+								as.makeWithdrawByID(account_id, transfer);
+								as.makeDepositByID(account_id2, transfer);
+								System.out.println("new balance for account transferred into: ");
+								System.out.println(as.getBalanceID(account_id2));
+								System.out.println("and new balance for account transferring from: ");
+								System.out.println(as.getBalanceID(account_id));
+								System.out.println("Returning to your main menu...");
+								ManagerMainMenu mmm = new ManagerMainMenu();
+								mmm.getMenu(username, password);
+							} catch (InputMismatchException e) {
+								System.out.println("Invalid input returning to menu top...");
+								ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
+								mcam.getMenu(username, password);
+							}
+
+						}
+
+						else {
+							System.out.println(
+									"\nInvalid selection. Please select a valid customer id returning"
+											+ "to top of menu...");
+							ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
+							mcam.getMenu(username, password);
+						}
+					} catch (InputMismatchException e) {
+						System.out.println("Invalid input returning to menu top...");
+						ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
+						mcam.getMenu(username, password);
+					}
 
 				
 
@@ -100,6 +138,8 @@ public class CustomerAccountMenu implements Menu {
 		}
 		else {
 			System.out.println("You do not have access to that account, returning to top of menu... ");
+			CustomerAccountMenu cam = new CustomerAccountMenu();
+			cam.getMenu(username, password);
 		}
 
 	}
