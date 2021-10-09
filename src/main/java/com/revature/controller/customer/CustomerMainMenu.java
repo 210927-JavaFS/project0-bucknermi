@@ -34,7 +34,8 @@ public class CustomerMainMenu implements Menu {
 
 	      else if (s.equalsIgnoreCase("c")) {
 	    	  
-	    	 
+	    	 CustomerApplicationMenu cam = new CustomerApplicationMenu();
+	    	 cam.getMenu(username, password);
 	        
 	      }
 	      

@@ -57,5 +57,9 @@ public class AccountService {
 	public boolean verifyAccount(int account_id) {
 		return accountDAO.activateAccount(account_id);
 	}
+	
+	public boolean removeAccount(int account_id) {
+		return accountDAO.deleteAccount(account_id);
+	}
  
 }
