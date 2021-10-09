@@ -5,15 +5,14 @@ public class Account {
 	private int account_id;
 	private String username;
 	private int balance;
-	private String teller;
 	private boolean activated;
 	
-	public Account(int account_id, String username, int balance, String teller, boolean activated) {
+	public Account(int account_id, String username, int balance, boolean activated) {
 		super();
 		this.account_id = account_id;
 		this.username = username;
 		this.balance = balance;
-		this.teller = teller;
+		
 		this.activated=activated;
 	}
 
@@ -21,7 +20,6 @@ public class Account {
 		super();
 		this.username = username;
 		this.balance = balance;
-		this.teller = teller;
 		this.activated=activated;
 	}
 	
@@ -61,13 +59,7 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public String getTeller() {
-		return teller;
-	}
 
-	public void setTeller(String teller) {
-		this.teller = teller;
-	}
 	
 
 	public boolean isActivated() {
@@ -78,7 +70,6 @@ public class Account {
 		this.activated = activated;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -86,7 +77,6 @@ public class Account {
 		result = prime * result + account_id;
 		result = prime * result + (activated ? 1231 : 1237);
 		result = prime * result + balance;
-		result = prime * result + ((teller == null) ? 0 : teller.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -106,11 +96,6 @@ public class Account {
 			return false;
 		if (balance != other.balance)
 			return false;
-		if (teller == null) {
-			if (other.teller != null)
-				return false;
-		} else if (!teller.equals(other.teller))
-			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -121,10 +106,12 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [account_id=" + account_id + ", username=" + username + ", balance=" + balance + ", teller="
-				+ teller + ", activated=" + activated + "]";
+		return "Account [account_id=" + account_id + ", username=" + username + ", balance=" + balance + ", activated="
+				+ activated + "]";
 	}
 
+	
+	
 	
 	
 	

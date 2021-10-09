@@ -13,7 +13,9 @@ public interface AccountDAO {
 	public int depositByID(int account_id, int deposit);
 	public int withdrawByID(int account_id, int deposit);
 	public boolean verifyIdByUsername(int account_id, String username);
-	public List<Account> createAccount();
+	public boolean createAccount(String username);
 	public boolean uniqueUsername(String username);
 	public boolean createLogin(String newUsername, String newPassword);
+	public List<Account> accountRequests();
+	
 }

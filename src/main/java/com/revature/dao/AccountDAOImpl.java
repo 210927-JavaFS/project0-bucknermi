@@ -30,7 +30,6 @@ public class AccountDAOImpl implements AccountDAO {
 				account.setAccount_id(result.getInt("account_id"));
 				account.setUsername(result.getString("username"));
 				account.setBalance(result.getInt("balance"));
-				account.setTeller(result.getString("teller"));
 				account.setActivated(result.getBoolean("activated"));
 				list.add(account);
 			}
@@ -165,7 +164,6 @@ public class AccountDAOImpl implements AccountDAO {
 				account.setAccount_id(result.getInt("account_id"));
 				account.setUsername(result.getString("username"));
 				account.setBalance(result.getInt("balance"));
-				account.setTeller(result.getString("teller"));
 				account.setActivated(result.getBoolean("activated"));
 				list.add(account);
 			}
@@ -207,9 +205,30 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public List<Account> createAccount() {
+	public boolean createAccount(String username) {
 		
-		return null;
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "INSERT into account (username, balance, activated) VALUES (? , 0, false) ;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, username);
+			
+
+		
+			statement.execute();
+			return true;
+				
+			}
+		
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		
+		
+		return false;
 	}
 
 	@Override
@@ -257,6 +276,40 @@ public class AccountDAOImpl implements AccountDAO {
 		}
 		return false;
 		
+	}
+
+	@Override
+	public List<Account> accountRequests() {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "SELECT * FROM account WHERE activated = ?;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setBoolean(1, false);
+
+			ResultSet result = statement.executeQuery();
+			
+			List<Account> list = new ArrayList<>();
+			
+			while (result.next()) {
+				Account account = new Account();
+				account.setAccount_id(result.getInt("account_id"));
+				account.setUsername(result.getString("username"));
+				account.setBalance(result.getInt("balance"));
+				account.setActivated(result.getBoolean("activated"));
+				list.add(account);
+			}
+			return list;
+		
+			
+			}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		
+		return null;
 	}
 	
 	

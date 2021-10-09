@@ -45,5 +45,13 @@ public class AccountService {
 	public boolean newLogin(String newUsername, String newPassword) {
 		return accountDAO.createLogin(newUsername, newPassword);
 	}
+	
+	public boolean createAccount(String username) {
+		return accountDAO.createAccount(username);
+	}
+	
+	public List<Account> findAllActivated() {
+		return accountDAO.accountRequests();
+	}
  
 }
