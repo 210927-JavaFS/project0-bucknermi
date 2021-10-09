@@ -10,7 +10,7 @@ public class ManagerMainMenu implements Menu {
 	public void getMenu(String username, String password) {
 	
 	System.out.println("\nHello and welcome to your account homepage. Please select an option from below:"
-			+ "\nA. Personal profile information \nB. Edit customer accounts \nC. Review account requests \nD. Exit ");
+			+ "\nA. Personal profile information \nB. View/Edit customer accounts \nC. Review account requests \nD. Exit ");
 	
 	Scanner scanner3 = new Scanner(System.in);
 

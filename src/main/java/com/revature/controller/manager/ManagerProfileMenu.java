@@ -9,7 +9,8 @@ public class ManagerProfileMenu implements Menu{
 	@Override
 	public void getMenu(String username, String password) {
 		
-		System.out.println("Your username and password are: \nType e to exit to main menu");
+		System.out.println("Your username is: " +username+ " and your password is: " +password+ 
+				"\nType e to exit to main menu");
 		
 		Scanner scanner = new Scanner(System.in);
 

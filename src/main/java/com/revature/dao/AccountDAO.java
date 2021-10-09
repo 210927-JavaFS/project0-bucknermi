@@ -7,9 +7,7 @@ import com.revature.model.Account;
 public interface AccountDAO {
 	
 	public List<Account> findAll();
-	public Account findByID(int account_id);
-	public boolean updateAccount(Account account);
-	public boolean addAccount(Account account);
-	
+	public int balanceByID(int account_id);
+	public boolean existByID(int account_id);
 
 }

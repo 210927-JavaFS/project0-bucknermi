@@ -2,12 +2,12 @@ package com.revature.service;
 
 public class SingleAccountService {
 	
-	public double deposit(double x, double y) {
+	public int deposit(int x, int y) {
 		
 		return x+y;
 	}
 	
-	public double withdraw(double x, double y) {
+	public int withdraw(int x, int y) {
 		
 		return x-y;
 	}

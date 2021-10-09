@@ -13,5 +13,13 @@ public class AccountService {
 	public List<Account> findAllAccounts() {
 		return accountDAO.findAll();
 	}
+	
+	public int getBalanceID(int account_id) {
+		return accountDAO.balanceByID(account_id);
+	}
+	
+	public boolean getExistByID(int account_id) {
+		return accountDAO.existByID(account_id);
+	}
 
 }

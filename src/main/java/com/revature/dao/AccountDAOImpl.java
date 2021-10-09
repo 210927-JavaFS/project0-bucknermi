@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,21 +43,57 @@ public class AccountDAOImpl implements AccountDAO{
 	}
 
 	@Override
-	public Account findByID(int account_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public int balanceByID(int account_id) {
+		try(Connection conn = Connections.getConnection()) { //try-with-resources
+			String sql = "SELECT balance FROM account WHERE account_id = ?;";
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			statement.setInt(1, account_id);
+			
+			
+			ResultSet result = statement.executeQuery();
+			
+			if(result.next()) {
+				int x = result.getInt("balance");
+				return x;
+			}
+			}
+			 
+			
+		catch(SQLException e) {
+			e.printStackTrace();
+		
+		
 	}
+		return 0;
+
+}
 
 	@Override
-	public boolean updateAccount(Account account) {
-		// TODO Auto-generated method stub
+	public boolean existByID(int account_id) {
+		try(Connection conn = Connections.getConnection()) { //try-with-resources
+			String sql = "SELECT * FROM account WHERE account_id = ?;";
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			statement.setInt(1, account_id);
+			
+			
+			ResultSet result = statement.executeQuery();
+			
+			boolean x = result.next();
+			
+			
+			return x;	
+			
+			
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return false;
+		
 	}
-
-	@Override
-	public boolean addAccount(Account account) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }
