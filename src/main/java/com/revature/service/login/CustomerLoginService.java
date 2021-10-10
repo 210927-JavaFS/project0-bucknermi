@@ -1,7 +1,7 @@
-package com.revature.service;
+package com.revature.service.login;
 
 import com.revature.dao.CustomerLoginDAO;
-import com.revature.dao.CustomerLoginDAOImpl;
+import com.revature.dao.impl.CustomerLoginDAOImpl;
 
 public class CustomerLoginService {
 	

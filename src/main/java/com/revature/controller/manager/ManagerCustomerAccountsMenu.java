@@ -3,12 +3,17 @@ package com.revature.controller.manager;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.AccountController;
 import com.revature.controller.Menu;
 import com.revature.controller.customer.CustomerAccountMenu;
 import com.revature.service.AccountService;
 
 public class ManagerCustomerAccountsMenu implements Menu {
+	
+	private static Logger log = LoggerFactory.getLogger(ManagerCustomerAccountsMenu.class);
 
 	@Override
 	public void getMenu(String username, String password) {
@@ -49,6 +54,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 									int deposit = scanner3.nextInt();
 									if(deposit<0) {
 										System.out.println("You cannot deposit a negative amount, returning to top of menu...");
+										log.warn("Invalid input");
 										CustomerAccountMenu cam = new CustomerAccountMenu();
 										cam.getMenu(username, password);	
 									}
@@ -60,6 +66,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 									mmm.getMenu(username, password);}
 								} catch (InputMismatchException e) {
 									System.out.println("Invalid input returning to menu top...");
+									log.warn("Invalid input");
 									ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 									mcam.getMenu(username, password);
 								}
@@ -72,6 +79,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 									int withdraw = scanner3.nextInt();
 									if(withdraw<0) {
 										System.out.println("You cannot withdraw a negative amount, returning to top of menu...");
+										log.warn("Invalid input");
 										CustomerAccountMenu cam = new CustomerAccountMenu();
 										cam.getMenu(username, password);
 									}
@@ -83,6 +91,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 									mmm.getMenu(username, password);}
 								} catch (InputMismatchException e) {
 									System.out.println("Invalid input returning to menu top...");
+									log.warn("Invalid input");
 									ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 									mcam.getMenu(username, password);
 								}
@@ -101,6 +110,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 											int transfer = scanner3.nextInt();
 											if(transfer<0) {
 												System.out.println("You cannot transfer a negative amount, returning to top of menu...");
+												log.warn("Invalid input");
 												CustomerAccountMenu cam = new CustomerAccountMenu();
 												cam.getMenu(username, password);
 											}
@@ -116,6 +126,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 											mmm.getMenu(username, password);}
 										} catch (InputMismatchException e) {
 											System.out.println("Invalid input returning to menu top...");
+											log.warn("Invalid input");
 											ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 											mcam.getMenu(username, password);
 										}
@@ -126,11 +137,13 @@ public class ManagerCustomerAccountsMenu implements Menu {
 										System.out.println(
 												"\nInvalid selection. Please select a valid customer id returning"
 														+ "to top of menu...");
+										log.warn("Invalid input");
 										ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 										mcam.getMenu(username, password);
 									}
 								} catch (InputMismatchException e) {
 									System.out.println("Invalid input returning to menu top...");
+									log.warn("Invalid input");
 									ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 									mcam.getMenu(username, password);
 								}
@@ -139,13 +152,15 @@ public class ManagerCustomerAccountsMenu implements Menu {
 
 							else if (s1.equalsIgnoreCase("d")) {
 
-								System.out.println("Exiting Program...");
-								System.exit(0);
+								System.out.println("Exiting to main menu...");
+								ManagerMainMenu mmm = new ManagerMainMenu();
+								mmm.getMenu(username, password);
 
 							}
 
 							else {
 								System.out.println("\nInvalid selection. Please select a, b or c...");
+								log.warn("Invalid input");
 								ManagerMainMenu mmm = new ManagerMainMenu();
 								mmm.getMenu(username, password);
 							}
@@ -156,6 +171,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 				} catch (NumberFormatException e) {
 					System.out.println(
 							"\nInvalid selection. Please select a valid customer id returning to top of menu...");
+					log.warn("Invalid input");
 					ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 					mcam.getMenu(username, password);
 				}

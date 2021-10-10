@@ -2,12 +2,17 @@ package com.revature.controller.teller;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.EntryMenu;
 import com.revature.controller.Login;
-import com.revature.service.EncryptionService;
-import com.revature.service.TellerLoginService;
+import com.revature.service.login.EncryptionService;
+import com.revature.service.login.TellerLoginService;
 
 public class TellerLogin extends Login {
+	
+	private static Logger log = LoggerFactory.getLogger(TellerLogin.class);
 	
 	@Override
 	public void getLogin() {
@@ -39,6 +44,7 @@ public class TellerLogin extends Login {
 			
 			else {
 				System.out.println("Incorrect username and password combination. Returning to main menu");
+				log.warn("Teller login attempt failed");
 				EntryMenu em = new EntryMenu();
 				em.getMenu(username, password);
 			}

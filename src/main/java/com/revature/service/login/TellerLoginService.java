@@ -1,7 +1,7 @@
-package com.revature.service;
+package com.revature.service.login;
 
 import com.revature.dao.TellerLoginDAO;
-import com.revature.dao.TellerLoginDAOImpl;
+import com.revature.dao.impl.TellerLoginDAOImpl;
 
 public class TellerLoginService {
 	

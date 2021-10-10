@@ -2,7 +2,7 @@ package com.revature.controller;
 
 import java.util.List;
 
-import com.revature.model.Account;
+import com.revature.dao.model.Account;
 import com.revature.service.AccountService;
 
 public class AccountController {

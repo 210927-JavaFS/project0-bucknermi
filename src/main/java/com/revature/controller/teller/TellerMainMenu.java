@@ -2,9 +2,14 @@ package com.revature.controller.teller;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.Menu;
 
 public class TellerMainMenu implements Menu {
+	
+	private static Logger log = LoggerFactory.getLogger(TellerMainMenu.class);
 	
 	@Override
 	public void getMenu(String username, String password) {
@@ -39,7 +44,7 @@ public class TellerMainMenu implements Menu {
 	  
 	      else {
 	        System.out.println("\nInvalid selection. Please select a, b or c");
-	        
+	        log.warn("Invalid input");
 	        TellerMainMenu tmm = new TellerMainMenu();
 	        tmm.getMenu(username, password);
 	      }

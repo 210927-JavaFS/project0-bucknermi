@@ -2,13 +2,18 @@ package com.revature.controller.customer;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.EntryMenu;
 import com.revature.controller.Login;
-import com.revature.service.CustomerLoginService;
-import com.revature.service.EncryptionService;
+import com.revature.service.login.CustomerLoginService;
+import com.revature.service.login.EncryptionService;
+
 
 public class CustomerLogin extends Login {
 
+	private static Logger log = LoggerFactory.getLogger(CustomerLogin.class);
 	@Override
 	public void getLogin() {
 		
@@ -38,8 +43,10 @@ public class CustomerLogin extends Login {
 		
 		 else {
 				System.out.println("Incorrect username and password combination. Returning to main menu");
+				log.warn("Customer login attempt faild");
 				EntryMenu em = new EntryMenu();
 				em.getMenu(username, password);
+				
 			}
 			
 			

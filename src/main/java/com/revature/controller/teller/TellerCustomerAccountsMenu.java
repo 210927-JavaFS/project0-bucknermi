@@ -3,12 +3,16 @@ package com.revature.controller.teller;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.AccountController;
 import com.revature.controller.Menu;
-import com.revature.controller.customer.CustomerAccountMenu;
 import com.revature.service.AccountService;
 
 public class TellerCustomerAccountsMenu implements Menu {
+	
+	private static Logger log = LoggerFactory.getLogger(TellerCustomerAccountsMenu.class);
 
 	@Override
 	public void getMenu(String username, String password) {
@@ -50,7 +54,8 @@ public class TellerCustomerAccountsMenu implements Menu {
 									int deposit = scanner3.nextInt();
 									if(deposit<0) {
 										System.out.println("You cannot deposit a negative amount, returning to top of menu...");
-										CustomerAccountMenu cam = new CustomerAccountMenu();
+										log.warn("Invalid input");
+										TellerCustomerAccountsMenu cam = new TellerCustomerAccountsMenu();
 										cam.getMenu(username, password);
 									}
 									else {
@@ -61,6 +66,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 									tmm.getMenu(username, password);}
 								} catch (InputMismatchException e) {
 									System.out.println("Invalid input returning to menu top...");
+									log.warn("Invalid input");
 									TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 									tcam.getMenu(username, password);
 								}
@@ -73,7 +79,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 									int withdraw = scanner3.nextInt();
 									if(withdraw<0) {
 										System.out.println("You cannot withdraw a negative amount, returning to top of menu...");
-										CustomerAccountMenu cam = new CustomerAccountMenu();
+										TellerCustomerAccountsMenu cam = new TellerCustomerAccountsMenu();
 										cam.getMenu(username, password);
 									}
 									else {
@@ -84,6 +90,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 									tmm.getMenu(username, password);}
 								} catch (InputMismatchException e) {
 									System.out.println("Invalid input returning to menu top...");
+									log.warn("Invalid input");
 									TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 									tcam.getMenu(username, password);
 								}
@@ -102,7 +109,8 @@ public class TellerCustomerAccountsMenu implements Menu {
 											int transfer = scanner3.nextInt();
 											if(transfer<0) {
 												System.out.println("You cannot transfer a negative amount, returning to top of menu...");
-												CustomerAccountMenu cam = new CustomerAccountMenu();
+												log.warn("Invalid input");
+												TellerCustomerAccountsMenu cam = new TellerCustomerAccountsMenu();
 												cam.getMenu(username, password);
 											}
 											else {
@@ -117,6 +125,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 											tmm.getMenu(username, password);}
 										} catch (InputMismatchException e) {
 											System.out.println("Invalid input returning to menu top...");
+											log.warn("Invalid input");
 											TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 											tcam.getMenu(username, password);
 										}
@@ -127,11 +136,13 @@ public class TellerCustomerAccountsMenu implements Menu {
 										System.out.println(
 												"\nInvalid selection. Please select a valid customer id returning"
 														+ "to top of menu...");
+										log.warn("Invalid input");
 										TellerCustomerAccountsMenu mcam = new TellerCustomerAccountsMenu();
 										mcam.getMenu(username, password);
 									}
 								} catch (InputMismatchException e) {
 									System.out.println("Invalid input returning to menu top...");
+									log.warn("Invalid input");
 									TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 									tcam.getMenu(username, password);
 								}
@@ -140,13 +151,15 @@ public class TellerCustomerAccountsMenu implements Menu {
 
 							else if (s1.equalsIgnoreCase("d")) {
 
-								System.out.println("Exiting Program...");
-								System.exit(0);
+								System.out.println("Returning to your main menu...");
+								TellerMainMenu tmm = new TellerMainMenu();
+								tmm.getMenu(username, password);
 
 							}
 
 							else {
 								System.out.println("\nInvalid selection. Please select a, b or c...");
+								log.warn("Invalid input");
 								TellerMainMenu tmm = new TellerMainMenu();
 								tmm.getMenu(username, password);
 							}
@@ -157,6 +170,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 				} catch (NumberFormatException e) {
 					System.out.println(
 							"\nInvalid selection. Please select a valid customer id returning to top of menu...");
+					log.warn("Invalid input");
 					TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 					tcam.getMenu(username, password);
 				}

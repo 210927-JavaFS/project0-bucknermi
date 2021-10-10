@@ -113,3 +113,16 @@
 10:45:16.491 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 10:45:22.994 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 10:47:26.812 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+11:49:44.032 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests, this is a test for the createAccount method
+11:49:49.328 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete. This is a test for the deleteAccount method
+11:49:54.940 [] [main] INFO  c.r.testing.EncryptDecryptTesting - Encrypt decrypt test has finished
+11:49:54.966 [] [main] INFO  c.r.testing.EncryptDecryptTesting - Encrypt decrypt test has begun
+12:02:55.560 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+12:03:25.507 [] [main] WARN  com.revature.dao.AccountDAOImpl - user tried to overdraw account
+12:34:12.869 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt faild
+12:40:10.934 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt faild
+12:50:06.965 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt faild
+12:55:29.163 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+12:56:10.645 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited
+12:57:07.615 [] [main] WARN  com.revature.dao.impl.AccountDAOImpl - user tried to overdraw account
+12:57:44.695 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited

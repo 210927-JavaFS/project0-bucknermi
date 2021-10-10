@@ -2,10 +2,15 @@ package com.revature.controller.customer;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.Menu;
 import com.revature.service.AccountService;
 
 public class CustomerApplicationMenu implements Menu {
+	
+	private static Logger log = LoggerFactory.getLogger(CustomerApplicationMenu.class);
 
 	@Override
 	public void getMenu(String username, String password) {
@@ -35,6 +40,7 @@ public class CustomerApplicationMenu implements Menu {
 
 			else {
 				System.out.println("\nInvalid selection. Please select a, b or e");
+				log.warn("Invalid input");
 				CustomerApplicationMenu cpm = new CustomerApplicationMenu();
 				cpm.getMenu(username, password);
 			}

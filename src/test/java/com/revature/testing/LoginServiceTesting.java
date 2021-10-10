@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.revature.service.CustomerLoginService;
-import com.revature.service.ManagerLoginService;
-import com.revature.service.TellerLoginService;
+import com.revature.service.login.CustomerLoginService;
+import com.revature.service.login.ManagerLoginService;
+import com.revature.service.login.TellerLoginService;
 
 public class LoginServiceTesting {
 	

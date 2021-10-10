@@ -1,4 +1,4 @@
-package com.revature.dao;
+package com.revature.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.revature.controller.Connections;
+import com.revature.dao.CustomerLoginDAO;
 
 public class CustomerLoginDAOImpl implements CustomerLoginDAO {
 
