@@ -23,7 +23,7 @@ public class LoginServiceTesting {
 	
 	@Test
 	public void CustomerLoginTest() {
-		log.info("Testing );
+		log.info("Testing");
 		username = "test";
 		password = "test";
 		result = cls.testLogin(username, password);

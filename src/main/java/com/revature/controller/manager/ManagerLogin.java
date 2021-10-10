@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.revature.controller.EntryMenu;
 import com.revature.controller.Login;
+import com.revature.service.EncryptionService;
 import com.revature.service.ManagerLoginService;
 
 public class ManagerLogin extends Login{
@@ -22,6 +23,10 @@ public class ManagerLogin extends Login{
 		System.out.println("Password: ");
 		
 		password = scanner2.nextLine();
+		
+		EncryptionService es = new EncryptionService();
+		
+		password = es.encryptor(password);
 		
 		ManagerLoginService mls = new ManagerLoginService();
 		boolean x = mls.testLogin(username, password);

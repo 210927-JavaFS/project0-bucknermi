@@ -50,11 +50,17 @@ public class CustomerAccountMenu implements Menu {
 					System.out.println("Enter the amount you would like to deposit:");
 					try {
 						int deposit = scanner.nextInt();
+						if(deposit<0) {
+							System.out.println("You cannot deposit a negative amount, returning to top of menu...");
+							CustomerAccountMenu cam = new CustomerAccountMenu();
+							cam.getMenu(username, password);
+						}
+						else {
 						as.makeDepositByID(account_id, deposit);
 						System.out.println("New balance is: " + as.getBalanceID(account_id)
 								+ " Returning to your main menu...");
 						ManagerMainMenu mmm = new ManagerMainMenu();
-						mmm.getMenu(username, password);
+						mmm.getMenu(username, password);}
 					} catch (InputMismatchException e) {
 						System.out.println("Invalid input returning to menu top...");
 						ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
@@ -68,11 +74,17 @@ public class CustomerAccountMenu implements Menu {
 					System.out.println("Enter the amount you would like to withdraw:");
 					try {
 						int withdraw = scanner.nextInt();
+						if(withdraw<0) {
+							System.out.println("You cannot withdraw a negative amount, returning to top of menu...");
+							CustomerAccountMenu cam = new CustomerAccountMenu();
+							cam.getMenu(username, password);
+						}
+						else {
 						as.makeWithdrawByID(account_id, withdraw);
 						System.out.println("New balance is: " + as.getBalanceID(account_id)
 								+ " Returning to your main menu...");
 						ManagerMainMenu mmm = new ManagerMainMenu();
-						mmm.getMenu(username, password);
+						mmm.getMenu(username, password);}
 					} catch (InputMismatchException e) {
 						System.out.println("Invalid input returning to menu top...");
 						ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
@@ -92,6 +104,12 @@ public class CustomerAccountMenu implements Menu {
 							System.out.println("Enter the amount you would like to transfer:");
 							try {
 								int transfer = scanner.nextInt();
+								if(transfer<0) {
+									System.out.println("You cannot transfer a negative amount, returning to top of menu...");
+									CustomerAccountMenu cam = new CustomerAccountMenu();
+									cam.getMenu(username, password);
+								}
+								else {
 								as.makeWithdrawByID(account_id, transfer);
 								as.makeDepositByID(account_id2, transfer);
 								System.out.println("new balance for account transferred into: ");
@@ -100,7 +118,7 @@ public class CustomerAccountMenu implements Menu {
 								System.out.println(as.getBalanceID(account_id));
 								System.out.println("Returning to your main menu...");
 								ManagerMainMenu mmm = new ManagerMainMenu();
-								mmm.getMenu(username, password);
+								mmm.getMenu(username, password);}
 							} catch (InputMismatchException e) {
 								System.out.println("Invalid input returning to menu top...");
 								ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
