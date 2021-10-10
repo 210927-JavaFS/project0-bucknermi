@@ -1,4 +1,4 @@
-package com.revature.dao;
+package com.revature.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +8,19 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.Connections;
-import com.revature.model.Account;
+import com.revature.dao.AccountDAO;
+import com.revature.dao.model.Account;
 import com.revature.service.AccountService;
 import com.revature.service.SingleAccountService;
 
+
 public class AccountDAOImpl implements AccountDAO {
 
+	private static Logger log = LoggerFactory.getLogger(AccountDAOImpl.class);
 	@Override
 	public List<Account> findAll() {
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
@@ -119,12 +125,18 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public int withdrawByID(int account_id, int deposit) {
+	public int withdrawByID(int account_id, int withdraw) {
 
 		AccountService as = new AccountService();
 		int x = as.getBalanceID(account_id);
+		if(withdraw>x) {
+			System.out.println("Not enough money in account to complete this transaction, transaction failed...");
+			log.warn("user tried to overdraw account");
+			return x;
+		}
+		else {
 		SingleAccountService sas = new SingleAccountService();
-		int y = sas.withdraw(x, deposit);
+		int y = sas.withdraw(x, withdraw);
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
 			String sql = "UPDATE account SET balance = ? WHERE account_id = ?;";
 
@@ -142,7 +154,7 @@ public class AccountDAOImpl implements AccountDAO {
 		catch (SQLException e) {
 			e.printStackTrace();
 
-		}
+		}}
 		return 0;
 	}
 
@@ -359,6 +371,30 @@ public class AccountDAOImpl implements AccountDAO {
 
 		}
 		return false;
+	}
+
+	@Override
+	public int IDByUsername(String username) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "SELECT account_id FROM account WHERE username = ?;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, username);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				int x = result.getInt("account_id");
+				return x;
+			}
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return 0;
 	}
 
 

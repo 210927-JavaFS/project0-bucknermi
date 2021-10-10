@@ -23,8 +23,6 @@ public class EntryMenu implements Menu{
 		 System.out.println(
 			        "Hello and welcome to the Bank. Select your login level from the options below or type E "
 			        + "to exit \nA. Manager \nB. Teller \nC. Customer \nD. Register for new account \nE. Exit ");
-		 
-		 	log.info("Entry menu accessed");
 
 			    Scanner scanner = new Scanner(System.in);
 

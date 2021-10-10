@@ -3,8 +3,8 @@ package com.revature.service;
 import java.util.List;
 
 import com.revature.dao.AccountDAO;
-import com.revature.dao.AccountDAOImpl;
-import com.revature.model.Account;
+import com.revature.dao.impl.AccountDAOImpl;
+import com.revature.dao.model.Account;
 
 public class AccountService {
 	
@@ -60,6 +60,10 @@ public class AccountService {
 	
 	public boolean removeAccount(int account_id) {
 		return accountDAO.deleteAccount(account_id);
+	}
+	
+	public int getIDByUsername(String username) {
+		return accountDAO.IDByUsername(username);
 	}
  
 }

@@ -3,6 +3,7 @@ package com.revature.controller;
 import java.util.Scanner;
 
 import com.revature.service.AccountService;
+import com.revature.service.login.EncryptionService;
 
 public class Registration {
 	
@@ -25,6 +26,8 @@ public class Registration {
 		AccountService as = new AccountService();
 		
 		if(as.newUsername(newUsername)) {
+			EncryptionService es = new EncryptionService();
+			newPassword = es.encryptor(newPassword);
 			as.newLogin(newUsername, newPassword);
 			System.out.println("\nLogin creation successful, returning to main menu...");
 		}

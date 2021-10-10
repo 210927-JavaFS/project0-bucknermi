@@ -1,19 +1,25 @@
-package com.revature.dao;
+package com.revature.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.revature.controller.Connections;
 
-public class TellerLoginDAOImpl implements TellerLoginDAO{
+
+import com.revature.controller.Connections;
+import com.revature.dao.ManagerLoginDAO;
+
+
+
+
+public class ManagerLoginDAOImpl implements ManagerLoginDAO{
 
 	@Override
 	public boolean test(String username, String password) {
 		
 		try(Connection conn = Connections.getConnection()) { //try-with-resources
-			String sql = "SELECT * FROM teller_names WHERE username = ? AND PASSWORD = ?;";
+			String sql = "SELECT * FROM manager_names WHERE username = ? AND PASSWORD = ?;";
 			
 			PreparedStatement statement = conn.prepareStatement(sql);
 			
@@ -34,9 +40,7 @@ public class TellerLoginDAOImpl implements TellerLoginDAO{
 		}
 		
 	return false;
-		
-	}
-	
-	
-
 }
+}
+	
+	

@@ -2,11 +2,16 @@ package com.revature.controller.manager;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.AccountController;
 import com.revature.controller.Menu;
 import com.revature.service.AccountService;
 
 public class ManagerApplicationMenu implements Menu {
+	
+	private static Logger log = LoggerFactory.getLogger(ManagerApplicationMenu.class);
 	
 	@Override
 	public void getMenu(String username, String password) {
@@ -54,6 +59,7 @@ public class ManagerApplicationMenu implements Menu {
 					}
 					else {
 						System.out.println("Invalid ID selection. Returning to top of menu...");
+						log.warn("Invalid input");
 						ManagerApplicationMenu mam = new ManagerApplicationMenu();
 						mam.getMenu(username, password);
 						
@@ -62,12 +68,14 @@ public class ManagerApplicationMenu implements Menu {
 				}
 				else {
 					System.out.println("Invalid ID selection. Returning to top of menu...");
+					log.warn("Invalid input");
 					ManagerApplicationMenu mam = new ManagerApplicationMenu();
 					mam.getMenu(username, password);
 				}
 		  }
 			  catch(NumberFormatException e) {
 				  System.out.println("\nInvalid selection. Please select a valid customer id. Returning to top of menu...");
+				  log.warn("Invalid input");
 					ManagerApplicationMenu mam = new ManagerApplicationMenu();
 					mam.getMenu(username, password);
 			  }

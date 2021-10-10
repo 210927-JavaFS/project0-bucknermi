@@ -2,9 +2,14 @@ package com.revature.controller.customer;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.controller.Menu;
 
 public class CustomerMainMenu implements Menu {
+	
+	private static Logger log = LoggerFactory.getLogger(CustomerMainMenu.class);
 	
 	@Override
 	public void getMenu(String username, String password) {
@@ -42,11 +47,13 @@ public class CustomerMainMenu implements Menu {
   
 	      else if (s.equalsIgnoreCase("d")) {
 	    	  	System.out.println("Exiting Program...");
+	    	  	log.info("Program exited");
 		        System.exit(0);
 		      }
 
 	      else {
 	        System.out.println("\nInvalid selection. Please select a, b, c or d");
+	        log.warn("Invalid input");
 	        CustomerMainMenu cmm = new CustomerMainMenu();
 	        cmm.getMenu(username, password);
 	      }

@@ -88,3 +88,41 @@
 14:17:26.328 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 14:18:22.893 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
 14:25:17.632 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+16:46:19.698 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:48:54.668 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:51:41.233 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:51:45.172 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete
+16:51:54.347 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:51:59.077 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete
+16:57:24.570 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests
+16:57:28.443 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete
+17:06:17.040 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests, this serves as a test for thecreateAccount method
+17:06:22.236 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete. This serves as a test for thedeleteAccount method
+17:06:59.148 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests, this serves as a test for thecreateAccount method
+17:07:04.907 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete. This serves as a test for thedeleteAccount method
+17:08:38.563 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests, this is a test for the createAccount method
+17:08:44.071 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete. This is a test for the deleteAccount method
+10:02:22.008 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:02:29.707 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:03:54.900 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:08:42.772 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:08:49.561 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:14:10.941 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:43:06.316 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:43:09.044 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:45:16.491 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:45:22.994 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+10:47:26.812 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+11:49:44.032 [] [main] INFO  c.r.testing.AccountServiceTesting - A test account has been successfully created to be used in the JUnit tests, this is a test for the createAccount method
+11:49:49.328 [] [main] INFO  c.r.testing.AccountServiceTesting - The test account has been deleted now that testing is complete. This is a test for the deleteAccount method
+11:49:54.940 [] [main] INFO  c.r.testing.EncryptDecryptTesting - Encrypt decrypt test has finished
+11:49:54.966 [] [main] INFO  c.r.testing.EncryptDecryptTesting - Encrypt decrypt test has begun
+12:02:55.560 [] [main] INFO  com.revature.controller.EntryMenu - Entry menu accessed
+12:03:25.507 [] [main] WARN  com.revature.dao.AccountDAOImpl - user tried to overdraw account
+12:34:12.869 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt faild
+12:40:10.934 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt faild
+12:50:06.965 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt faild
+12:55:29.163 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+12:56:10.645 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited
+12:57:07.615 [] [main] WARN  com.revature.dao.impl.AccountDAOImpl - user tried to overdraw account
+12:57:44.695 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited

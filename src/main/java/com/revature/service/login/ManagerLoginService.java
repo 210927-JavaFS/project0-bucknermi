@@ -1,7 +1,7 @@
-package com.revature.service;
+package com.revature.service.login;
 
 import com.revature.dao.ManagerLoginDAO;
-import com.revature.dao.ManagerLoginDAOImpl;
+import com.revature.dao.impl.ManagerLoginDAOImpl;
 
 public class ManagerLoginService {
 	
