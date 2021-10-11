@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.revature.controller.Menu;
+import com.revature.service.AccountService;
 import com.revature.service.login.DecryptionService;
 
 public class ManagerProfileMenu implements Menu {
@@ -17,8 +18,10 @@ public class ManagerProfileMenu implements Menu {
 
 		DecryptionService ds = new DecryptionService();
 		String dpassword = ds.decryptor(password);
-		System.out.println("\nYour username is: " + username + " and your password is: " + dpassword
-				+ "\nType E to exit to main menu");
+		AccountService as = new AccountService();
+		int account_id = as.getManagerIDByUsername(username);
+		System.out.println("\nYour username is: " + username + ", your password is: " + dpassword
+				+ " and your manager ID is: " + account_id + "\nType E to exit to main menu");
 
 		Scanner scanner = new Scanner(System.in);
 

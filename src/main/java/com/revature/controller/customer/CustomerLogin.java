@@ -44,7 +44,7 @@ public class CustomerLogin extends Login {
 
 		else {
 			System.out.println("\nIncorrect username and password combination. Returning to main menu...");
-			log.warn("Customer login attempt faild");
+			log.warn("Customer login attempt failed");
 			EntryMenu em = new EntryMenu();
 			em.getMenu(username, password);
 

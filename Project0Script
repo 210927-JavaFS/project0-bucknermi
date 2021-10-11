@@ -77,22 +77,39 @@ CREATE TABLE account (
 account_id SERIAL PRIMARY KEY,
 username VARCHAR REFERENCES customer_names(username) NOT NULL,
 balance NUMERIC NOT NULL,
-activated boolean
+activated boolean,
+secondary_user VARCHAR REFERENCES customer_names(username) DEFAULT NULL
 );
 
 
-INSERT INTO account (username, balance, activated) VALUES 
-('cname1', 1000, true ),
-('cname2', 2000, true ),
-('cname3', 3000, true ),
-('cname4', 4000, true ),
-('cname5', 0, false ),
-('cname6', 0, false ),
-('cname7', 0, false ),
-('cname8', 0, false ),
-('cname1', 9000, true ),
-('cname1', 0, false),
-('cname2', 2000, true);
+INSERT INTO account (username, balance, activated, secondary_user) VALUES 
+('cname1', 1000, TRUE, NULL ),
+('cname2', 2000, TRUE, NULL ),
+('cname3', 3000, TRUE, NULL ),
+('cname4', 4000, TRUE, NULL ),
+('cname5', 0, FALSE, NULL ),
+('cname6', 0, FALSE, NULL ),
+('cname7', 0, FALSE, NULL ),
+('cname8', 0, FALSE, NULL ),
+('cname1', 9000, TRUE, 'cname5' ),
+('cname1', 0, FALSE, NULL),
+('cname2', 2000, TRUE, 'cname3');
+
+
+--Stored procedure
+
+CREATE OR REPLACE FUNCTION currentFundValuation() RETURNS integer AS 
+$$
+BEGIN
+	RETURN(SELECT SUM(balance)
+	FROM account);
+END
+$$
+LANGUAGE plpgsql;
+
+
+SELECT currentfundvaluation(); 
+
 
 
 
