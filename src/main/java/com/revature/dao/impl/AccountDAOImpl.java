@@ -17,10 +17,10 @@ import com.revature.dao.model.Account;
 import com.revature.service.AccountService;
 import com.revature.service.SingleAccountService;
 
-
 public class AccountDAOImpl implements AccountDAO {
 
 	private static Logger log = LoggerFactory.getLogger(AccountDAOImpl.class);
+
 	@Override
 	public List<Account> findAll() {
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
@@ -129,32 +129,32 @@ public class AccountDAOImpl implements AccountDAO {
 
 		AccountService as = new AccountService();
 		int x = as.getBalanceID(account_id);
-		if(withdraw>x) {
-			System.out.println("Not enough money in account to complete this transaction, transaction failed...");
+		if (withdraw > x) {
+			System.out.println("\nNot enough coins in account to complete this transaction, transaction failed...");
 			log.warn("user tried to overdraw account");
 			return x;
+		} else {
+			SingleAccountService sas = new SingleAccountService();
+			int y = sas.withdraw(x, withdraw);
+			try (Connection conn = Connections.getConnection()) { // try-with-resources
+				String sql = "UPDATE account SET balance = ? WHERE account_id = ?;";
+
+				PreparedStatement statement = conn.prepareStatement(sql);
+
+				statement.setInt(1, y);
+				statement.setInt(2, account_id);
+
+				statement.execute();
+
+				return y;
+
+			}
+
+			catch (SQLException e) {
+				e.printStackTrace();
+
+			}
 		}
-		else {
-		SingleAccountService sas = new SingleAccountService();
-		int y = sas.withdraw(x, withdraw);
-		try (Connection conn = Connections.getConnection()) { // try-with-resources
-			String sql = "UPDATE account SET balance = ? WHERE account_id = ?;";
-
-			PreparedStatement statement = conn.prepareStatement(sql);
-
-			statement.setInt(1, y);
-			statement.setInt(2, account_id);
-
-			statement.execute();
-
-			return y;
-
-		}
-
-		catch (SQLException e) {
-			e.printStackTrace();
-
-		}}
 		return 0;
 	}
 
@@ -168,9 +168,9 @@ public class AccountDAOImpl implements AccountDAO {
 			statement.setString(1, username);
 
 			ResultSet result = statement.executeQuery();
-			
+
 			List<Account> list = new ArrayList<>();
-			
+
 			while (result.next()) {
 				Account account = new Account();
 				account.setAccount_id(result.getInt("account_id"));
@@ -180,27 +180,26 @@ public class AccountDAOImpl implements AccountDAO {
 				list.add(account);
 			}
 			return list;
-		
-			
-			}
+
+		}
 
 		catch (SQLException e) {
 			e.printStackTrace();
 
 		}
-		
+
 		return null;
-		}
+	}
 
 	@Override
 	public boolean verifyIdByUsername(int account_id, String username) {
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
-			String sql = "SELECT * FROM account WHERE account_id = ? AND username = ?;";
+			String sql = "SELECT * FROM account WHERE account_id = ? AND username = ? AND activated = true;";
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setInt(1, account_id);
-			statement.setString(2,  username);
+			statement.setString(2, username);
 
 			ResultSet result = statement.executeQuery();
 
@@ -213,33 +212,29 @@ public class AccountDAOImpl implements AccountDAO {
 		}
 
 		return false;
-		
+
 	}
 
 	@Override
 	public boolean createAccount(String username) {
-		
+
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
 			String sql = "INSERT into account (username, balance, activated) VALUES (? , 0, false) ;";
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setString(1, username);
-			
 
-		
 			statement.execute();
 			return true;
-				
-			}
-		
+
+		}
 
 		catch (SQLException e) {
 			e.printStackTrace();
 
 		}
-		
-		
+
 		return false;
 	}
 
@@ -275,19 +270,17 @@ public class AccountDAOImpl implements AccountDAO {
 			statement.setString(1, newUsername);
 			statement.setString(2, newPassword);
 
-		
 			statement.execute();
 			return true;
-				
-			}
-		
+
+		}
 
 		catch (SQLException e) {
 			e.printStackTrace();
 
 		}
 		return false;
-		
+
 	}
 
 	@Override
@@ -300,9 +293,9 @@ public class AccountDAOImpl implements AccountDAO {
 			statement.setBoolean(1, false);
 
 			ResultSet result = statement.executeQuery();
-			
+
 			List<Account> list = new ArrayList<>();
-			
+
 			while (result.next()) {
 				Account account = new Account();
 				account.setAccount_id(result.getInt("account_id"));
@@ -312,15 +305,14 @@ public class AccountDAOImpl implements AccountDAO {
 				list.add(account);
 			}
 			return list;
-		
-			
-			}
+
+		}
 
 		catch (SQLException e) {
 			e.printStackTrace();
 
 		}
-		
+
 		return null;
 	}
 
@@ -332,21 +324,18 @@ public class AccountDAOImpl implements AccountDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setInt(1, account_id);
-			
 
-		
 			statement.execute();
 			return true;
-				
-			}
-		
+
+		}
 
 		catch (SQLException e) {
 			e.printStackTrace();
 
 		}
 		return false;
-		
+
 	}
 
 	@Override
@@ -357,14 +346,11 @@ public class AccountDAOImpl implements AccountDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setInt(1, account_id);
-			
 
-		
 			statement.execute();
 			return true;
-				
-			}
-		
+
+		}
 
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -397,9 +383,4 @@ public class AccountDAOImpl implements AccountDAO {
 		return 0;
 	}
 
-
-	
-	
 }
-
-

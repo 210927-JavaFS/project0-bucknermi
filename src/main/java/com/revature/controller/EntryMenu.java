@@ -9,69 +9,60 @@ import com.revature.controller.teller.TellerLogin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-
-
-public class EntryMenu implements Menu{
-	
+public class EntryMenu implements Menu {
 
 	private static Logger log = LoggerFactory.getLogger(EntryMenu.class);
+
 	public void getMenu(String username, String password) {
-		
-		
-		
-		 System.out.println(
-			        "Hello and welcome to the Bank. Select your login level from the options below or type E "
-			        + "to exit \nA. Manager \nB. Teller \nC. Customer \nD. Register for new account \nE. Exit ");
 
-			    Scanner scanner = new Scanner(System.in);
+		System.out.println(
+				"\nHello and welcome to the Bank of Gold Coins. Select your login level from the options below or type E "
+						+ "to exit \nA. Manager \nB. Teller \nC. Customer \nD. Register for new account \nE. Exit ");
 
-			    while (scanner.hasNext() == true) {
-			      String s = scanner.nextLine();
+		Scanner scanner = new Scanner(System.in);
 
-			      if (s.equalsIgnoreCase("a")) {
-			        
-			    	  
-			    	  ManagerLogin ml = new ManagerLogin();
-			    	  ml.getLogin();
-			      }
+		while (scanner.hasNext() == true) {
+			String s = scanner.nextLine();
 
-			      else if (s.equalsIgnoreCase("b")) {
-			       
-			    	  	
-			    	  	TellerLogin tl = new TellerLogin();
-			    	  	tl.getLogin();
-			      }
+			if (s.equalsIgnoreCase("a")) {
 
-			      else if (s.equalsIgnoreCase("c")) {
-			    	  
-			    	  CustomerLogin cl = new CustomerLogin();
-			    	  cl.getLogin();
-			        
-			      }
-			      
-			      	else if (s.equalsIgnoreCase("d")) {
-			    	  Registration r = new Registration();
-			    	  r.register();
-			        
-			      }
-			      
-			      
-			      
-			      else if (s.equalsIgnoreCase("e")) {
-			    	  System.out.println("Exiting Program...");
-				        System.exit(0);
-				      }
+				ManagerLogin ml = new ManagerLogin();
+				ml.getLogin();
+			}
 
-			      else {
-			        System.out.println("\nInvalid selection. Please select a, b or c");
-			        EntryMenu em = new EntryMenu();
-			        em.getMenu("none", "none");
-			      }
+			else if (s.equalsIgnoreCase("b")) {
 
-			    }
-			    
-			    scanner.close();
+				TellerLogin tl = new TellerLogin();
+				tl.getLogin();
+			}
+
+			else if (s.equalsIgnoreCase("c")) {
+
+				CustomerLogin cl = new CustomerLogin();
+				cl.getLogin();
+
+			}
+
+			else if (s.equalsIgnoreCase("d")) {
+				Registration r = new Registration();
+				r.register();
+
+			}
+
+			else if (s.equalsIgnoreCase("e")) {
+				System.out.println("\nExiting Program...");
+				System.exit(0);
+			}
+
+			else {
+				System.out.println("\nInvalid selection. Please select a, b or c");
+				EntryMenu em = new EntryMenu();
+				em.getMenu("none", "none");
+			}
+
+		}
+
+		scanner.close();
 
 	}
 

@@ -9,13 +9,13 @@ import com.revature.controller.Menu;
 import com.revature.service.AccountService;
 
 public class CustomerApplicationMenu implements Menu {
-	
+
 	private static Logger log = LoggerFactory.getLogger(CustomerApplicationMenu.class);
 
 	@Override
 	public void getMenu(String username, String password) {
 
-		System.out.println("Type a to apply for a new account or type e to exit");
+		System.out.println("\nA. Apply for new account \nE. Exit");
 
 		Scanner scanner = new Scanner(System.in);
 
@@ -26,21 +26,21 @@ public class CustomerApplicationMenu implements Menu {
 
 				AccountService as = new AccountService();
 				as.createAccount(username);
-				System.out.println("Your account request has been created and will be reviewed by a manager");
-				System.out.println("Returning to your main menu...");
+				System.out.println("\nYour account request has been created and will be reviewed by a manager");
+				System.out.println("\nReturning to your main menu...");
 				CustomerMainMenu cmm = new CustomerMainMenu();
 				cmm.getMenu(username, password);
 			}
 
 			else if (s.equalsIgnoreCase("e")) {
-				System.out.println("Exiting to your main menu...");
+				System.out.println("\nExiting to your main menu...");
 				CustomerMainMenu cmm = new CustomerMainMenu();
 				cmm.getMenu(username, password);
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or e");
-				log.warn("Invalid input");
+				System.out.println("\nInvalid selection. Please select a, b or e...");
+				log.warn("Invalid menu input");
 				CustomerApplicationMenu cpm = new CustomerApplicationMenu();
 				cpm.getMenu(username, password);
 			}

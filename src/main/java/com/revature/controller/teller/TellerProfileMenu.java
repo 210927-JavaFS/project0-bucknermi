@@ -9,39 +9,38 @@ import com.revature.controller.Menu;
 import com.revature.service.login.DecryptionService;
 
 public class TellerProfileMenu implements Menu {
-	
+
 	private static Logger log = LoggerFactory.getLogger(TellerProfileMenu.class);
-	
+
 	@Override
 	public void getMenu(String username, String password) {
-		
+
 		DecryptionService ds = new DecryptionService();
 		String dpassword = ds.decryptor(password);
-		
-		System.out.println("Your username is: " +username+ " and your password is: " +dpassword+ 
-				"\nType e to exit to main menu");
-		
+
+		System.out.println("\nYour username is: " + username + " and your password is: " + dpassword
+				+ "\nType E to exit to main menu");
+
 		Scanner scanner = new Scanner(System.in);
 
-	    while (scanner.hasNext() == true) {
-	      String s = scanner.nextLine();
+		while (scanner.hasNext() == true) {
+			String s = scanner.nextLine();
 
-	      if (s.equalsIgnoreCase("e")) {
-	    	  TellerMainMenu tmm = new TellerMainMenu();
-	    	  tmm.getMenu(username, password);
-	    	  
-	      }
+			if (s.equalsIgnoreCase("e")) {
+				TellerMainMenu tmm = new TellerMainMenu();
+				tmm.getMenu(username, password);
 
+			}
 
-	      else {
-	        System.out.println("\nInvalid selection. Please select a, b or c");
-	        log.warn("Invalid input");
-	        TellerProfileMenu tpm = new TellerProfileMenu();
-	        tpm.getMenu(username, password);
-	      }
+			else {
+				System.out.println("\nInvalid selection. Please select a, b or e...");
+				log.warn("Invalid input");
+				TellerProfileMenu tpm = new TellerProfileMenu();
+				tpm.getMenu(username, password);
+			}
 
-	    }
-	     scanner.close();
+		}
+		scanner.close();
 
 	}
 

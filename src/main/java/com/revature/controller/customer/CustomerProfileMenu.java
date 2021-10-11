@@ -9,38 +9,37 @@ import com.revature.controller.Menu;
 import com.revature.service.login.DecryptionService;
 
 public class CustomerProfileMenu implements Menu {
-	
+
 	private static Logger log = LoggerFactory.getLogger(CustomerProfileMenu.class);
-	
+
 	@Override
 	public void getMenu(String username, String password) {
-		
+
 		DecryptionService ds = new DecryptionService();
 		String dpassword = ds.decryptor(password);
-	System.out.println("Your username is: " +username+ " and your password is: " +dpassword+ 
-			"\nType e to exit to main menu");
-	
-	Scanner scanner = new Scanner(System.in);
+		System.out.println("\nYour username is: " + username + " and your password is: " + dpassword
+				+ "\nType E to exit to main menu");
 
-    while (scanner.hasNext() == true) {
-      String s = scanner.nextLine();
+		Scanner scanner = new Scanner(System.in);
 
-      if (s.equalsIgnoreCase("e")) {
-    	  CustomerMainMenu cmm = new CustomerMainMenu();
-          cmm.getMenu(username, password);
-    	  
-      }
+		while (scanner.hasNext() == true) {
+			String s = scanner.nextLine();
 
+			if (s.equalsIgnoreCase("e")) {
+				CustomerMainMenu cmm = new CustomerMainMenu();
+				cmm.getMenu(username, password);
 
-      else {
-        System.out.println("\nInvalid selection. Please select a, b or c");
-        log.warn("Invalid input");
-        CustomerProfileMenu cpm = new CustomerProfileMenu();
-        cpm.getMenu(username, password);
-      }
+			}
 
-    }
-     scanner.close();
+			else {
+				System.out.println("\nInvalid selection. Please select a, b or c...");
+				log.warn("Invalid input");
+				CustomerProfileMenu cpm = new CustomerProfileMenu();
+				cpm.getMenu(username, password);
+			}
 
-}
+		}
+		scanner.close();
+
+	}
 }
