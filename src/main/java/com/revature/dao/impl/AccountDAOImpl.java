@@ -195,7 +195,7 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public boolean verifyIdByUsername(int account_id, String username) {
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
-			String sql = "SELECT * FROM account WHERE account_id = ? AND username = ?;";
+			String sql = "SELECT * FROM account WHERE account_id = ? AND username = ? AND activated = true;";
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 

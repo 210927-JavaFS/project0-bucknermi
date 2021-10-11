@@ -11,44 +11,43 @@ import com.revature.service.login.EncryptionService;
 import com.revature.service.login.TellerLoginService;
 
 public class TellerLogin extends Login {
-	
+
 	private static Logger log = LoggerFactory.getLogger(TellerLogin.class);
-	
+
 	@Override
 	public void getLogin() {
-			
-			System.out.println("Please enter your username and password: \nUsername: ");
-			
-			Scanner scanner1 = new Scanner(System.in);
-				
-			username = scanner1.nextLine();
-			
-			Scanner scanner2 = new Scanner(System.in);
-			
-			System.out.println("Password: ");
-			
-			password = scanner2.nextLine();
-			
-			EncryptionService es = new EncryptionService();
-			
-			password = es.encryptor(password);
-			
-			TellerLoginService tls = new TellerLoginService();
-			boolean x = tls.testLogin(username, password);
-			
-			if(x) {
-				System.out.println("Succesful login. Redirecting to your main menu");
-				TellerMainMenu tmm = new TellerMainMenu();
-				tmm.getMenu(username, password);
-			}
-			
-			else {
-				System.out.println("Incorrect username and password combination. Returning to main menu");
-				log.warn("Teller login attempt failed");
-				EntryMenu em = new EntryMenu();
-				em.getMenu(username, password);
-			}
-			
-		}
-}
 
+		System.out.println("\nPlease enter your username and password: \nUsername: ");
+
+		Scanner scanner1 = new Scanner(System.in);
+
+		username = scanner1.nextLine();
+
+		Scanner scanner2 = new Scanner(System.in);
+
+		System.out.println("Password: ");
+
+		password = scanner2.nextLine();
+
+		EncryptionService es = new EncryptionService();
+
+		password = es.encryptor(password);
+
+		TellerLoginService tls = new TellerLoginService();
+		boolean x = tls.testLogin(username, password);
+
+		if (x) {
+			System.out.println("\nSuccesful login. Redirecting to your main menu...");
+			TellerMainMenu tmm = new TellerMainMenu();
+			tmm.getMenu(username, password);
+		}
+
+		else {
+			System.out.println("\nIncorrect username and password combination. Returning to main menu...");
+			log.warn("Teller login attempt failed");
+			EntryMenu em = new EntryMenu();
+			em.getMenu(username, password);
+		}
+
+	}
+}

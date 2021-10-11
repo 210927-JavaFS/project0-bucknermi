@@ -6,6 +6,8 @@ import com.revature.dao.model.Account;
 import com.revature.service.AccountService;
 
 public class AccountController {
+	
+	//Class used to print methods that return objects from the service layer
 
 	private AccountService accountService = new AccountService();
 
