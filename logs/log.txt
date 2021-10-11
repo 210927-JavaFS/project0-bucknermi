@@ -131,3 +131,5 @@
 14:24:01.282 [] [main] WARN  c.r.c.customer.CustomerAccountMenu - Invalid input
 14:24:12.078 [] [main] WARN  c.r.c.customer.CustomerAccountMenu - Invalid input
 19:43:01.455 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+19:51:36.376 [] [main] WARN  com.revature.dao.impl.AccountDAOImpl - user tried to overdraw account
+19:55:22.125 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited

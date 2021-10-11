@@ -20,8 +20,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 		System.out.println("\nCustomer account information is: ");
 		AccountController a = new AccountController();
 		a.displayAllAccounts();
-		System.out.println(
-				"\nEnter the id of the customer whose account you would like to edit or type e to exit to main menu: ");
+		System.out.println("\nEnter the ID of the account you would like to edit or type E to exit to main menu: ");
 		Scanner scanner = new Scanner(System.in);
 
 		while (scanner.hasNext() == true) {
@@ -60,8 +59,8 @@ public class TellerCustomerAccountsMenu implements Menu {
 										cam.getMenu(username, password);
 									} else {
 										as.makeDepositByID(account_id, deposit);
-										System.out.println("\nNew balance is: " + as.getBalanceID(account_id)
-												+ " Returning to your main menu...");
+										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
+												+ " returning to your main menu...");
 										TellerMainMenu tmm = new TellerMainMenu();
 										tmm.getMenu(username, password);
 									}
@@ -86,7 +85,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 									} else {
 										as.makeWithdrawByID(account_id, withdraw);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ " Returning to your main menu...");
+												+ " returning to your main menu...");
 										TellerMainMenu tmm = new TellerMainMenu();
 										tmm.getMenu(username, password);
 									}

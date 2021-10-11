@@ -1,0 +1,113 @@
+DROP TABLE IF EXISTS manager_info;
+DROP TABLE IF EXISTS teller_info;
+DROP TABLE IF EXISTS manager_names;
+DROP TABLE IF EXISTS teller_names;
+DROP TABLE IF EXISTS account;
+DROP TABLE IF EXISTS customer_names;
+
+CREATE TABLE manager_names (
+username VARCHAR PRIMARY KEY,
+password VARCHAR NOT NULL
+);
+
+CREATE TABLE teller_names (
+username VARCHAR PRIMARY KEY,
+PASSWORD VARCHAR NOT NULL
+);
+
+CREATE TABLE customer_names (
+username VARCHAR PRIMARY KEY,
+PASSWORD VARCHAR NOT NULL,
+num_accounts INTEGER DEFAULT 0
+);
+
+--All passwords encrypted with ceasar script wtih a value of +5
+
+INSERT INTO manager_names (username, password) VALUES 
+('mname1', 'rufxx6'),
+('mname2', 'rufxx7');
+
+
+INSERT INTO teller_names (username, password) VALUES 
+('tname1', 'yufxx6'),
+('tname2', 'yufxx7'),
+('tname3', 'yufxx8'),
+('tname4', 'yufxx9');
+
+
+
+INSERT INTO customer_names (username, password) VALUES 
+('cname1', 'hufxx6'),
+('cname2', 'hufxx7'),
+('cname3', 'hufxx8'),
+('cname4', 'hufxx9'),
+('cname5', 'hufxx10'),
+('cname6', 'hufxx11'),
+('cname7', 'hufxx12'),
+('cname8', 'hufxx13'),
+('test', 'yjxy');
+
+
+
+
+CREATE TABLE manager_info(
+manager_id SERIAL PRIMARY KEY,
+username VARCHAR REFERENCES manager_names(username) NOT NULL,
+salary NUMERIC NOT NULL
+);
+
+CREATE TABLE teller_info(
+teller_id SERIAL PRIMARY KEY,
+username VARCHAR REFERENCES teller_names(username) NOT NULL,
+salary NUMERIC NOT NULL
+);
+
+INSERT INTO manager_info (username, salary) VALUES
+('mname1', 200000),
+('mname2', 200000);
+
+INSERT INTO teller_info(username, salary) VALUES
+('tname1', 100000),
+('tname2', 95000),
+('tname3', 90000),
+('tname4', 85000);
+
+
+CREATE TABLE account (
+account_id SERIAL PRIMARY KEY,
+username VARCHAR REFERENCES customer_names(username) NOT NULL,
+balance NUMERIC NOT NULL,
+activated boolean
+);
+
+
+INSERT INTO account (username, balance, activated) VALUES 
+('cname1', 1000, true ),
+('cname2', 2000, true ),
+('cname3', 3000, true ),
+('cname4', 4000, true ),
+('cname5', 0, false ),
+('cname6', 0, false ),
+('cname7', 0, false ),
+('cname8', 0, false ),
+('cname1', 9000, true ),
+('cname1', 0, false),
+('cname2', 2000, true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
