@@ -62,8 +62,8 @@ public class CustomerAccountMenu implements Menu {
 							cam.getMenu(username, password);
 						} else {
 							as.makeDepositByID(account_id, deposit);
-							System.out.println(
-									"\nBalance is: " + as.getBalanceID(account_id) + " returning to your main menu...");
+							System.out.println("\nBalance is: " + as.getBalanceID(account_id)
+									+ ", returning to your main menu...");
 							CustomerMainMenu mmm = new CustomerMainMenu();
 							mmm.getMenu(username, password);
 						}
@@ -87,8 +87,8 @@ public class CustomerAccountMenu implements Menu {
 							cam.getMenu(username, password);
 						} else {
 							as.makeWithdrawByID(account_id, withdraw);
-							System.out.println("\nNew balance is: " + as.getBalanceID(account_id)
-									+ " returning to your main menu...");
+							System.out.println("\nBalance is: " + as.getBalanceID(account_id)
+									+ ", returning to your main menu...");
 							CustomerMainMenu mmm = new CustomerMainMenu();
 							mmm.getMenu(username, password);
 						}
@@ -119,9 +119,9 @@ public class CustomerAccountMenu implements Menu {
 								} else {
 									as.makeWithdrawByID(account_id, transfer);
 									as.makeDepositByID(account_id2, transfer);
-									System.out.println("\nbalance for account transferred into: ");
+									System.out.println("\nBalance for account transferred into: ");
 									System.out.println(as.getBalanceID(account_id2));
-									System.out.println("\nbalance for account transferring from: ");
+									System.out.println("\nBalance for account transferring from: ");
 									System.out.println(as.getBalanceID(account_id));
 									System.out.println("\nReturning to your main menu...");
 									CustomerMainMenu mmm = new CustomerMainMenu();

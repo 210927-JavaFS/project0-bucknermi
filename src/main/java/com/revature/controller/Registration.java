@@ -12,7 +12,7 @@ public class Registration {
 
 	public void register() {
 
-		System.out.println("\nPlease enter a new susername and password. After you have chosen your password press enter"
+		System.out.println("\nPlease enter a new username and password. After you have chosen your password press enter"
 				+ " to register your account and return to the main menu: \nUsername: ");
 
 		Scanner scanner1 = new Scanner(System.in);

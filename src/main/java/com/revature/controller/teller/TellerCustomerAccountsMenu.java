@@ -60,7 +60,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 									} else {
 										as.makeDepositByID(account_id, deposit);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ " returning to your main menu...");
+												+ ", returning to your main menu...");
 										TellerMainMenu tmm = new TellerMainMenu();
 										tmm.getMenu(username, password);
 									}
@@ -85,7 +85,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 									} else {
 										as.makeWithdrawByID(account_id, withdraw);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ " returning to your main menu...");
+												+ ", returning to your main menu...");
 										TellerMainMenu tmm = new TellerMainMenu();
 										tmm.getMenu(username, password);
 									}

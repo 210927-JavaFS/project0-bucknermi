@@ -130,7 +130,7 @@ public class AccountDAOImpl implements AccountDAO {
 		AccountService as = new AccountService();
 		int x = as.getBalanceID(account_id);
 		if (withdraw > x) {
-			System.out.println("/nNot enough coins in account to complete this transaction, transaction failed...");
+			System.out.println("\nNot enough coins in account to complete this transaction, transaction failed...");
 			log.warn("user tried to overdraw account");
 			return x;
 		} else {

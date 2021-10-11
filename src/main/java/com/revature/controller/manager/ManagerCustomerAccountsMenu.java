@@ -60,7 +60,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 									} else {
 										as.makeDepositByID(account_id, deposit);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ " returning to your main menu...");
+												+ ", returning to your main menu...");
 										ManagerMainMenu mmm = new ManagerMainMenu();
 										mmm.getMenu(username, password);
 									}
@@ -86,7 +86,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 									} else {
 										as.makeWithdrawByID(account_id, withdraw);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ " returning to your main menu...");
+												+ ", returning to your main menu...");
 										ManagerMainMenu mmm = new ManagerMainMenu();
 										mmm.getMenu(username, password);
 									}

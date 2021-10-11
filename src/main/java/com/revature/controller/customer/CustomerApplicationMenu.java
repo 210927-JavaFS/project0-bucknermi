@@ -39,7 +39,7 @@ public class CustomerApplicationMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or e");
+				System.out.println("\nInvalid selection. Please select a, b or e...");
 				log.warn("Invalid menu input");
 				CustomerApplicationMenu cpm = new CustomerApplicationMenu();
 				cpm.getMenu(username, password);

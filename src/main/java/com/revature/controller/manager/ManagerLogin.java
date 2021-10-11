@@ -37,11 +37,11 @@ public class ManagerLogin extends Login {
 		boolean x = mls.testLogin(username, password);
 
 		if (x) {
-			System.out.println("\nSuccesful login. Redirecting to your main menu");
+			System.out.println("\nSuccesful login. Redirecting to your main menu...");
 			ManagerMainMenu mmm = new ManagerMainMenu();
 			mmm.getMenu(username, password);
 		} else {
-			System.out.println("\nIncorrect username and password combination. Returning to main menu");
+			System.out.println("\nIncorrect username and password combination. Returning to main menu...");
 			log.warn("Manger login attempt failed");
 			EntryMenu em = new EntryMenu();
 			em.getMenu(username, password);

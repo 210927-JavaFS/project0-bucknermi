@@ -18,7 +18,7 @@ public class ManagerProfileMenu implements Menu {
 		DecryptionService ds = new DecryptionService();
 		String dpassword = ds.decryptor(password);
 		System.out.println("\nYour username is: " + username + " and your password is: " + dpassword
-				+ "\nType e to exit to main menu");
+				+ "\nType E to exit to main menu");
 
 		Scanner scanner = new Scanner(System.in);
 

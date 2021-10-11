@@ -51,7 +51,7 @@ public class CustomerMainMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b, c or e");
+				System.out.println("\nInvalid selection. Please select a, b, c or e...");
 				log.warn("Invalid menu input");
 				CustomerMainMenu cmm = new CustomerMainMenu();
 				cmm.getMenu(username, password);

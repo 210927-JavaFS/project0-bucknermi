@@ -133,3 +133,11 @@
 19:43:01.455 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
 19:51:36.376 [] [main] WARN  com.revature.dao.impl.AccountDAOImpl - user tried to overdraw account
 19:55:22.125 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+10:29:03.633 [] [main] WARN  c.r.c.m.ManagerCustomerAccountsMenu - Invalid input
+10:33:39.940 [] [main] WARN  c.r.c.manager.ManagerApplicationMenu - Invalid number input
+10:34:46.218 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited
+10:37:08.806 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+10:39:14.509 [] [main] WARN  com.revature.dao.impl.AccountDAOImpl - user tried to overdraw account
+10:39:28.104 [] [main] WARN  c.r.c.m.ManagerCustomerAccountsMenu - Invalid input
+10:39:48.848 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited
+10:44:11.197 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited

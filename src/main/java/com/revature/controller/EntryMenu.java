@@ -15,8 +15,9 @@ public class EntryMenu implements Menu {
 
 	public void getMenu(String username, String password) {
 
-		System.out.println("Hello and welcome to the Bank of Gold Coins. Select your login level from the options below or type E "
-				+ "to exit \nA. Manager \nB. Teller \nC. Customer \nD. Register for new account \nE. Exit ");
+		System.out.println(
+				"\nHello and welcome to the Bank of Gold Coins. Select your login level from the options below or type E "
+						+ "to exit \nA. Manager \nB. Teller \nC. Customer \nD. Register for new account \nE. Exit ");
 
 		Scanner scanner = new Scanner(System.in);
 

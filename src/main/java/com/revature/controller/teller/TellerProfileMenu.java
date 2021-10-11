@@ -33,7 +33,7 @@ public class TellerProfileMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or c");
+				System.out.println("\nInvalid selection. Please select a, b or e...");
 				log.warn("Invalid input");
 				TellerProfileMenu tpm = new TellerProfileMenu();
 				tpm.getMenu(username, password);
