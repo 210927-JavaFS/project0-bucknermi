@@ -141,3 +141,15 @@
 10:39:28.104 [] [main] WARN  c.r.c.m.ManagerCustomerAccountsMenu - Invalid input
 10:39:48.848 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited
 10:44:11.197 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited
+15:51:22.455 [] [main] WARN  c.r.controller.teller.TellerLogin - Teller login attempt failed
+15:54:09.836 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited
+16:00:50.759 [] [main] WARN  c.r.c.customer.CustomerAccountMenu - Invalid input number
+16:01:01.149 [] [main] WARN  c.r.c.customer.CustomerMainMenu - Invalid menu input
+16:01:02.977 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+16:13:29.220 [] [main] WARN  c.r.c.customer.CustomerAccountMenu - Invalid number input
+16:14:43.409 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+16:15:23.531 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+16:21:28.740 [] [main] INFO  c.r.t.SingleAccountServiceTesting - Testing
+16:24:21.366 [] [main] INFO  c.r.t.SingleAccountServiceTesting - Testing
+16:25:35.896 [] [main] INFO  c.r.c.manager.ManagerMainMenu - Program exited
+16:26:10.439 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited

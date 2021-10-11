@@ -37,6 +37,7 @@ public class AccountDAOImpl implements AccountDAO {
 				account.setUsername(result.getString("username"));
 				account.setBalance(result.getInt("balance"));
 				account.setActivated(result.getBoolean("activated"));
+				account.setSecondary_user(result.getString("secondary_user"));
 				list.add(account);
 			}
 			return list;
@@ -161,11 +162,12 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public List<Account> findAllByUsername(String username) {
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
-			String sql = "SELECT * FROM account WHERE username = ?;";
+			String sql = "SELECT * FROM account WHERE username = ? OR secondary_user = ?;";
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setString(1, username);
+			statement.setString(2, username);
 
 			ResultSet result = statement.executeQuery();
 
@@ -177,6 +179,7 @@ public class AccountDAOImpl implements AccountDAO {
 				account.setUsername(result.getString("username"));
 				account.setBalance(result.getInt("balance"));
 				account.setActivated(result.getBoolean("activated"));
+				account.setSecondary_user(result.getString("secondary_user"));
 				list.add(account);
 			}
 			return list;
@@ -194,12 +197,13 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public boolean verifyIdByUsername(int account_id, String username) {
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
-			String sql = "SELECT * FROM account WHERE account_id = ? AND username = ? AND activated = true;";
+			String sql = "SELECT * FROM account WHERE account_id = ? AND (username = ? OR secondary_user = ?) AND activated = true;";
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setInt(1, account_id);
 			statement.setString(2, username);
+			statement.setString(3, username);
 
 			ResultSet result = statement.executeQuery();
 
@@ -302,6 +306,7 @@ public class AccountDAOImpl implements AccountDAO {
 				account.setUsername(result.getString("username"));
 				account.setBalance(result.getInt("balance"));
 				account.setActivated(result.getBoolean("activated"));
+				account.setSecondary_user(result.getString("secondary_user"));
 				list.add(account);
 			}
 			return list;
@@ -381,6 +386,79 @@ public class AccountDAOImpl implements AccountDAO {
 
 		}
 		return 0;
+	}
+
+	@Override
+	public int TellerIDByUsername(String username) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "SELECT teller_id FROM teller_info WHERE username = ?;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, username);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				int x = result.getInt("teller_id");
+				return x;
+			}
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return 0;
+
+	}
+
+	@Override
+	public int ManagerIDByUsername(String username) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "SELECT manager_id FROM manager_info WHERE username = ?;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, username);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				int x = result.getInt("manager_id");
+				return x;
+			}
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return 0;
+
+	}
+
+	@Override
+	public boolean createJointAccount(String username, String secondary_user) {
+		try (Connection conn = Connections.getConnection()) { // try-with-resources
+			String sql = "INSERT into account (username, balance, activated, secondary_user) VALUES (? , 0 , false , ?) ;";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, username);
+			statement.setString(2, secondary_user);
+
+			statement.execute();
+			return true;
+
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		return false;
 	}
 
 }

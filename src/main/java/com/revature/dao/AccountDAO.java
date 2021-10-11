@@ -9,7 +9,7 @@ public interface AccountDAO {
 	public List<Account> findAll(); //returns all accounts as objects
 	public int balanceByID(int account_id); //returns account balance from id
 	public List<Account> findAllByUsername(String username); //returns account as object from username
-	public boolean existByID(int account_id); //determines if 
+	public boolean existByID(int account_id); //determines if given account id exists
 	public int depositByID(int account_id, int deposit); //deposits input amount into account of given id
 	public int withdrawByID(int account_id, int withdraw); //withdraws input amount from account of given id
 	public boolean verifyIdByUsername(int account_id, String username); //checks if input username has access to given account id
@@ -20,6 +20,8 @@ public interface AccountDAO {
 	public boolean activateAccount(int account_id); //activates account with given input id
 	public boolean deleteAccount(int account_id); //deletes account with given id
 	public int IDByUsername(String username); //returns first account id associted with user (used for testing)
-	
+	public int TellerIDByUsername(String username); //returns the teller id associated with a given username
+	public int ManagerIDByUsername(String username); //returns the manager id associated with a given username
+	public boolean createJointAccount(String username, String secondary_user); //creates account which also has a secondary user
 	
 }
