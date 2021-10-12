@@ -17,8 +17,7 @@ PASSWORD VARCHAR NOT NULL
 
 CREATE TABLE customer_names (
 username VARCHAR PRIMARY KEY,
-PASSWORD VARCHAR NOT NULL,
-num_accounts INTEGER DEFAULT 0
+PASSWORD VARCHAR NOT NULL
 );
 
 --All passwords encrypted with ceasar script wtih a value of +5
