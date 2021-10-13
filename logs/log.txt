@@ -181,3 +181,14 @@
 14:29:45.847 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
 14:30:06.744 [] [main] WARN  c.r.controller.manager.ManagerLogin - Manger login attempt failed
 14:30:38.152 [] [main] WARN  c.r.c.manager.ManagerApplicationMenu - Invalid number input
+14:33:50.953 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+14:34:05.921 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+14:35:08.709 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt failed
+14:35:42.756 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+14:36:12.910 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt failed
+14:36:32.815 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt failed
+14:37:58.222 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt failed
+14:38:31.302 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+14:39:38.875 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt failed
+14:45:31.342 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+14:46:19.071 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited

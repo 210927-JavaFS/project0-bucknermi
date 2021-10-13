@@ -40,10 +40,10 @@ INSERT INTO customer_names (username, password) VALUES
 ('cname2', 'hufxx7'),
 ('cname3', 'hufxx8'),
 ('cname4', 'hufxx9'),
-('cname5', 'hufxx10'),
-('cname6', 'hufxx11'),
-('cname7', 'hufxx12'),
-('cname8', 'hufxx13'),
+('cname5', 'hufxx:'),
+('cname6', 'hufxx;'),
+('cname7', 'hufxx<'),
+('cname8', 'hufxx='),
 ('test', 'yjxy');
 
 /* 
