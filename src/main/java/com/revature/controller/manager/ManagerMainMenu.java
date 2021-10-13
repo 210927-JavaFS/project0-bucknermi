@@ -15,7 +15,7 @@ public class ManagerMainMenu implements Menu {
 	public void getMenu(String username, String password) {
 
 		System.out.println("\nHello and welcome to your account homepage. Please select an option from below:"
-				+ "\nA. Personal profile information \nB. View/Edit customer accounts \nC. Review account requests \nD. Exit ");
+				+ "\nA. Personal profile information \nB. View/Edit customer accounts \nC. Review account requests \nE. Exit ");
 
 		Scanner scanner3 = new Scanner(System.in);
 
@@ -42,7 +42,7 @@ public class ManagerMainMenu implements Menu {
 
 			}
 
-			else if (s.equalsIgnoreCase("d")) {
+			else if (s.equalsIgnoreCase("e")) {
 
 				System.out.println("\nExiting Program...");
 				log.info("Program exited");
@@ -51,7 +51,7 @@ public class ManagerMainMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or c");
+				System.out.println("\nInvalid selection. Please select a, b, c or e. Returning to top of menu...");
 				log.warn("Invalid input");
 				ManagerMainMenu mmm = new ManagerMainMenu();
 				mmm.getMenu(username, password);

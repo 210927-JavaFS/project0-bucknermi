@@ -17,6 +17,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 	@Override
 	public void getMenu(String username, String password) {
 
+		TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 		System.out.println("\nCustomer account information is: ");
 		AccountController a = new AccountController();
 		a.displayAllAccounts();
@@ -40,7 +41,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 					if (y) {
 						int z = as.getBalanceID(account_id);
 						System.out.println("\nCurrent balance is " + z);
-						System.out.println("A. Deposit \nB. Withdraw \nC. Transfer \nD. Exit to your main menu");
+						System.out.println("A. Deposit \nB. Withdraw \nC. Transfer \nE. Exit to your main menu");
 						Scanner scanner3 = new Scanner(System.in);
 
 						while (scanner3.hasNext() == true) {
@@ -55,19 +56,16 @@ public class TellerCustomerAccountsMenu implements Menu {
 										System.out.println(
 												"\nYou cannot deposit a negative amount, returning to top of menu...");
 										log.warn("Invalid input");
-										TellerCustomerAccountsMenu cam = new TellerCustomerAccountsMenu();
-										cam.getMenu(username, password);
+										tcam.getMenu(username, password);
 									} else {
 										as.makeDepositByID(account_id, deposit);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ ", returning to your main menu...");
-										TellerMainMenu tmm = new TellerMainMenu();
-										tmm.getMenu(username, password);
+												+ ", returning to top of menu...");
+										tcam.getMenu(username, password);
 									}
 								} catch (InputMismatchException e) {
 									System.out.println("\nInvalid input returning to menu top...");
 									log.warn("Invalid input");
-									TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 									tcam.getMenu(username, password);
 								}
 							}
@@ -80,19 +78,16 @@ public class TellerCustomerAccountsMenu implements Menu {
 									if (withdraw < 0) {
 										System.out.println(
 												"\nYou cannot withdraw a negative amount, returning to top of menu...");
-										TellerCustomerAccountsMenu cam = new TellerCustomerAccountsMenu();
-										cam.getMenu(username, password);
+										tcam.getMenu(username, password);
 									} else {
 										as.makeWithdrawByID(account_id, withdraw);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ ", returning to your main menu...");
-										TellerMainMenu tmm = new TellerMainMenu();
-										tmm.getMenu(username, password);
+												+ ", returning to top of menu...");
+										tcam.getMenu(username, password);
 									}
 								} catch (InputMismatchException e) {
 									System.out.println("\nInvalid input returning to menu top...");
 									log.warn("Invalid input");
-									TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 									tcam.getMenu(username, password);
 								}
 
@@ -113,8 +108,7 @@ public class TellerCustomerAccountsMenu implements Menu {
 												System.out.println(
 														"\nYou cannot transfer a negative amount, returning to top of menu...");
 												log.warn("Invalid input");
-												TellerCustomerAccountsMenu cam = new TellerCustomerAccountsMenu();
-												cam.getMenu(username, password);
+												tcam.getMenu(username, password);
 											} else {
 												as.makeWithdrawByID(account_id, transfer);
 												as.makeDepositByID(account_id2, transfer);
@@ -122,14 +116,12 @@ public class TellerCustomerAccountsMenu implements Menu {
 												System.out.println(as.getBalanceID(account_id2));
 												System.out.println("\nBalance for account transferring from: ");
 												System.out.println(as.getBalanceID(account_id));
-												System.out.println("\nReturning to your main menu...");
-												TellerMainMenu tmm = new TellerMainMenu();
-												tmm.getMenu(username, password);
+												System.out.println("\nReturning to top of menu...");
+												tcam.getMenu(username, password);
 											}
 										} catch (InputMismatchException e) {
 											System.out.println("\nInvalid input returning to menu top...");
 											log.warn("Invalid input");
-											TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 											tcam.getMenu(username, password);
 										}
 
@@ -140,19 +132,17 @@ public class TellerCustomerAccountsMenu implements Menu {
 												"\nInvalid selection. Please select a valid customer id returning"
 														+ "to top of menu...");
 										log.warn("Invalid input");
-										TellerCustomerAccountsMenu mcam = new TellerCustomerAccountsMenu();
-										mcam.getMenu(username, password);
+										tcam.getMenu(username, password);
 									}
 								} catch (InputMismatchException e) {
 									System.out.println("\nInvalid input returning to menu top...");
 									log.warn("Invalid input");
-									TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 									tcam.getMenu(username, password);
 								}
 
 							}
 
-							else if (s1.equalsIgnoreCase("d")) {
+							else if (s1.equalsIgnoreCase("e")) {
 
 								System.out.println("\nReturning to your main menu...");
 								TellerMainMenu tmm = new TellerMainMenu();
@@ -161,10 +151,10 @@ public class TellerCustomerAccountsMenu implements Menu {
 							}
 
 							else {
-								System.out.println("\nInvalid selection. Please select a, b or c...");
+								System.out.println(
+										"\nInvalid selection. Please select a, b, c or e. Returning to top of menu...");
 								log.warn("Invalid input");
-								TellerMainMenu tmm = new TellerMainMenu();
-								tmm.getMenu(username, password);
+								tcam.getMenu(username, password);
 							}
 
 						}
@@ -174,7 +164,6 @@ public class TellerCustomerAccountsMenu implements Menu {
 					System.out.println(
 							"\nInvalid selection. Please select a valid customer id returning to top of menu...");
 					log.warn("Invalid input");
-					TellerCustomerAccountsMenu tcam = new TellerCustomerAccountsMenu();
 					tcam.getMenu(username, password);
 				}
 

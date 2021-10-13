@@ -17,6 +17,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 
 	@Override
 	public void getMenu(String username, String password) {
+		ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 		System.out.println("\nCustomer account information is: ");
 		AccountController a = new AccountController();
 		a.displayAllAccounts();
@@ -40,7 +41,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 					if (y) {
 						int z = as.getBalanceID(account_id);
 						System.out.println("\nCurrent balance is " + z);
-						System.out.println("\nA. Deposit \nB. Withdraw \nC. Transfer \nD. Exit to your main menu");
+						System.out.println("\nA. Deposit \nB. Withdraw \nC. Transfer \nE. Exit to your main menu");
 						Scanner scanner3 = new Scanner(System.in);
 
 						while (scanner3.hasNext() == true) {
@@ -55,19 +56,16 @@ public class ManagerCustomerAccountsMenu implements Menu {
 										System.out.println(
 												"\nYou cannot deposit a negative amount, returning to top of menu...");
 										log.warn("Invalid input");
-										CustomerAccountMenu cam = new CustomerAccountMenu();
-										cam.getMenu(username, password);
+										mcam.getMenu(username, password);
 									} else {
 										as.makeDepositByID(account_id, deposit);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ ", returning to your main menu...");
-										ManagerMainMenu mmm = new ManagerMainMenu();
-										mmm.getMenu(username, password);
+												+ ", returning to top of menu...");
+										mcam.getMenu(username, password);
 									}
 								} catch (InputMismatchException e) {
 									System.out.println("\nInvalid input returning to menu top...");
 									log.warn("Invalid input");
-									ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 									mcam.getMenu(username, password);
 								}
 							}
@@ -81,19 +79,16 @@ public class ManagerCustomerAccountsMenu implements Menu {
 										System.out.println(
 												"You cannot withdraw a negative amount, returning to top of menu...");
 										log.warn("Invalid input");
-										CustomerAccountMenu cam = new CustomerAccountMenu();
-										cam.getMenu(username, password);
+										mcam.getMenu(username, password);
 									} else {
 										as.makeWithdrawByID(account_id, withdraw);
 										System.out.println("\nBalance is: " + as.getBalanceID(account_id)
-												+ ", returning to your main menu...");
-										ManagerMainMenu mmm = new ManagerMainMenu();
-										mmm.getMenu(username, password);
+												+ ", returning to top of menu...");
+										mcam.getMenu(username, password);
 									}
 								} catch (InputMismatchException e) {
 									System.out.println("\nInvalid input returning to menu top...");
 									log.warn("Invalid input");
-									ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 									mcam.getMenu(username, password);
 								}
 
@@ -114,8 +109,7 @@ public class ManagerCustomerAccountsMenu implements Menu {
 												System.out.println(
 														"\nYou cannot transfer a negative amount, returning to top of menu...");
 												log.warn("Invalid input");
-												CustomerAccountMenu cam = new CustomerAccountMenu();
-												cam.getMenu(username, password);
+												mcam.getMenu(username, password);
 											} else {
 												as.makeWithdrawByID(account_id, transfer);
 												as.makeDepositByID(account_id2, transfer);
@@ -123,14 +117,12 @@ public class ManagerCustomerAccountsMenu implements Menu {
 												System.out.println(as.getBalanceID(account_id2));
 												System.out.println("\nand balance for account transferring from: ");
 												System.out.println(as.getBalanceID(account_id));
-												System.out.println("\nReturning to your main menu...");
-												ManagerMainMenu mmm = new ManagerMainMenu();
-												mmm.getMenu(username, password);
+												System.out.println("\nReturning to top of menu...");
+												mcam.getMenu(username, password);
 											}
 										} catch (InputMismatchException e) {
 											System.out.println("\nInvalid input returning to menu top...");
 											log.warn("Invalid input");
-											ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 											mcam.getMenu(username, password);
 										}
 
@@ -141,19 +133,17 @@ public class ManagerCustomerAccountsMenu implements Menu {
 												"\nInvalid selection. Please select a valid customer id returning"
 														+ "to top of menu...");
 										log.warn("Invalid input");
-										ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 										mcam.getMenu(username, password);
 									}
 								} catch (InputMismatchException e) {
 									System.out.println("\nInvalid input returning to menu top...");
 									log.warn("Invalid input");
-									ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 									mcam.getMenu(username, password);
 								}
 
 							}
 
-							else if (s1.equalsIgnoreCase("d")) {
+							else if (s1.equalsIgnoreCase("e")) {
 
 								System.out.println("Exiting to main menu...");
 								ManagerMainMenu mmm = new ManagerMainMenu();
@@ -162,10 +152,9 @@ public class ManagerCustomerAccountsMenu implements Menu {
 							}
 
 							else {
-								System.out.println("\nInvalid selection. Please select a, b or c...");
+								System.out.println("\nInvalid selection. Please select a, b, c or e...");
 								log.warn("Invalid input");
-								ManagerMainMenu mmm = new ManagerMainMenu();
-								mmm.getMenu(username, password);
+								mcam.getMenu(username, password);
 							}
 
 						}
@@ -175,7 +164,6 @@ public class ManagerCustomerAccountsMenu implements Menu {
 					System.out.println(
 							"\nInvalid selection. Please select a valid customer id returning to top of menu...");
 					log.warn("Invalid input");
-					ManagerCustomerAccountsMenu mcam = new ManagerCustomerAccountsMenu();
 					mcam.getMenu(username, password);
 				}
 

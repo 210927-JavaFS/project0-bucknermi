@@ -16,6 +16,7 @@ public class ManagerApplicationMenu implements Menu {
 	@Override
 	public void getMenu(String username, String password) {
 
+		ManagerApplicationMenu mam = new ManagerApplicationMenu();
 		System.out.println(
 				"\nYour pending application requests are below. Enter the request ID to approve or delete account request, or type E to exit");
 
@@ -37,28 +38,24 @@ public class ManagerApplicationMenu implements Menu {
 					boolean y = as.getExistByID(account_id);
 					if (y) {
 						System.out.println("\nYou have selected account with id: " + account_id);
-						System.out.println("\nA.Activate account \nB.DeleteAccount \nE.Exit");
+						System.out.println("\nA.Activate account \nB.Delete account \nE.Exit");
 						String s1 = scanner.nextLine();
 
 						if (s1.equalsIgnoreCase("a")) {
 							as.verifyAccount(account_id);
-							System.out.println("\nAccount has been verified, returning to your main menu...");
-							ManagerMainMenu mmm = new ManagerMainMenu();
-							mmm.getMenu(username, password);
+							System.out.println("\nAccount has been verified, returning to top of menu...");
+							mam.getMenu(username, password);
 						} else if (s1.equalsIgnoreCase("b")) {
 							as.removeAccount(account_id);
-							System.out.println("\naccount has been deleted returning to your main menu...");
-							ManagerMainMenu mmm = new ManagerMainMenu();
-							mmm.getMenu(username, password);
+							System.out.println("\naccount has been deleted returning to top of menu...");
+							mam.getMenu(username, password);
 
 						} else if (s1.equalsIgnoreCase("e")) {
 							System.out.println("\nreturning to top of menu..");
-							ManagerApplicationMenu mam = new ManagerApplicationMenu();
 							mam.getMenu(username, password);
 						} else {
 							System.out.println("\nInvalid ID selection. Returning to top of menu...");
 							log.warn("Invalid number input");
-							ManagerApplicationMenu mam = new ManagerApplicationMenu();
 							mam.getMenu(username, password);
 
 						}
@@ -66,13 +63,11 @@ public class ManagerApplicationMenu implements Menu {
 					} else {
 						System.out.println("\nInvalid ID selection. Returning to top of menu...");
 						log.warn("Invalid number input");
-						ManagerApplicationMenu mam = new ManagerApplicationMenu();
 						mam.getMenu(username, password);
 					}
 				} catch (NumberFormatException e) {
 					System.out.println("\nInvalid selection. Returning to top of menu...");
 					log.warn("Invalid number input");
-					ManagerApplicationMenu mam = new ManagerApplicationMenu();
 					mam.getMenu(username, password);
 				}
 

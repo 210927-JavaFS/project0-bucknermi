@@ -17,6 +17,7 @@ public class CustomerApplicationMenu implements Menu {
 
 	@Override
 	public void getMenu(String username, String password) {
+		CustomerApplicationMenu cam = new CustomerApplicationMenu();
 
 		System.out.println("\nA. Apply for new account \nB. Apply for joint account \nE. Exit");
 
@@ -30,9 +31,8 @@ public class CustomerApplicationMenu implements Menu {
 				AccountService as = new AccountService();
 				as.createAccount(username);
 				System.out.println("\nYour account request has been created and will be reviewed by a manager");
-				System.out.println("\nReturning to your main menu...");
-				CustomerMainMenu cmm = new CustomerMainMenu();
-				cmm.getMenu(username, password);
+				System.out.println("\nReturning to top of menu...");
+				cam.getMenu(username, password);
 			}
 
 			else if (s.equalsIgnoreCase("b")) {
@@ -53,22 +53,20 @@ public class CustomerApplicationMenu implements Menu {
 				secondary_password = es.encryptor(secondary_password);
 
 				CustomerLoginService cls = new CustomerLoginService();
-				boolean x = cls.testLogin(username, password);
+				boolean x = cls.testLogin(secondary_username, secondary_password);
 
 				if (x) {
 					System.out.println("\nYour request has been successfuly created...");
 					AccountService as = new AccountService();
 					as.createSharedAccount(username, secondary_username);
-					System.out.println("\nReturning to your main menu...");
-					CustomerMainMenu cmm = new CustomerMainMenu();
-					cmm.getMenu(username, password);
+					System.out.println("\nReturning to top of menu...");
+					cam.getMenu(username, password);
 				}
 
 				else {
 					System.out.println(
 							"\nIncorrect username and password combination. Attempt failed, returning to top of menu...");
 					log.warn("Invalid input");
-					CustomerApplicationMenu cam = new CustomerApplicationMenu();
 					cam.getMenu(username, password);
 
 				}
@@ -82,10 +80,9 @@ public class CustomerApplicationMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or e...");
+				System.out.println("\nInvalid selection. Please select a, b or e. Returning to top of menu...");
 				log.warn("Invalid menu input");
-				CustomerApplicationMenu cpm = new CustomerApplicationMenu();
-				cpm.getMenu(username, password);
+				cam.getMenu(username, password);
 			}
 
 		}
