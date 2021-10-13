@@ -53,7 +53,7 @@ public class CustomerApplicationMenu implements Menu {
 				secondary_password = es.encryptor(secondary_password);
 
 				CustomerLoginService cls = new CustomerLoginService();
-				boolean x = cls.testLogin(username, password);
+				boolean x = cls.testLogin(secondary_username, secondary_password);
 
 				if (x) {
 					System.out.println("\nYour request has been successfuly created...");

@@ -46,7 +46,12 @@ INSERT INTO customer_names (username, password) VALUES
 ('cname8', 'hufxx13'),
 ('test', 'yjxy');
 
-
+/* 
+ LOGIN INFORMATION FOR TESTING THE PROGRAM 
+ MANAGER: MNAME1, MPASS1
+ TELLER: TNAME1, TPASS1
+ CUSTOMER: CNAME1, CPASS1
+ */
 
 
 CREATE TABLE manager_info(

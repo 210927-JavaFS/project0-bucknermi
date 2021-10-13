@@ -176,3 +176,4 @@
 14:18:50.216 [] [main] WARN  c.r.c.m.ManagerCustomerAccountsMenu - Invalid input
 14:19:01.374 [] [main] WARN  c.r.c.m.ManagerCustomerAccountsMenu - Invalid input
 14:19:39.269 [] [main] WARN  c.r.c.t.TellerCustomerAccountsMenu - Invalid input
+14:24:10.039 [] [main] WARN  c.r.c.c.CustomerApplicationMenu - Invalid input
