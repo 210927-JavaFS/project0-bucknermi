@@ -38,7 +38,7 @@ public class ManagerApplicationMenu implements Menu {
 					boolean y = as.getExistByID(account_id);
 					if (y) {
 						System.out.println("\nYou have selected account with id: " + account_id);
-						System.out.println("\nA.Activate account \nB.DeleteAccount \nE.Exit");
+						System.out.println("\nA.Activate account \nB.Delete account \nE.Exit");
 						String s1 = scanner.nextLine();
 
 						if (s1.equalsIgnoreCase("a")) {

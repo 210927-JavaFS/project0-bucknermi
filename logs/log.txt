@@ -177,3 +177,7 @@
 14:19:01.374 [] [main] WARN  c.r.c.m.ManagerCustomerAccountsMenu - Invalid input
 14:19:39.269 [] [main] WARN  c.r.c.t.TellerCustomerAccountsMenu - Invalid input
 14:24:10.039 [] [main] WARN  c.r.c.c.CustomerApplicationMenu - Invalid input
+14:26:58.265 [] [main] WARN  c.r.c.customer.CustomerAccountMenu - Invalid number input
+14:29:45.847 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+14:30:06.744 [] [main] WARN  c.r.controller.manager.ManagerLogin - Manger login attempt failed
+14:30:38.152 [] [main] WARN  c.r.c.manager.ManagerApplicationMenu - Invalid number input
