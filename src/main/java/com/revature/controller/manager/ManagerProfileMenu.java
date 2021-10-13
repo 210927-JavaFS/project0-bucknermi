@@ -35,7 +35,7 @@ public class ManagerProfileMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or c");
+				System.out.println("\nInvalid selection. Please select e. Returning to top of menu...");
 				log.warn("Invalid input");
 				ManagerProfileMenu mpm = new ManagerProfileMenu();
 				mpm.getMenu(username, password);

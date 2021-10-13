@@ -32,7 +32,7 @@ public class CustomerProfileMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or c...");
+				System.out.println("\nInvalid selection. Please select e. Returning to top of menu...");
 				log.warn("Invalid input");
 				CustomerProfileMenu cpm = new CustomerProfileMenu();
 				cpm.getMenu(username, password);

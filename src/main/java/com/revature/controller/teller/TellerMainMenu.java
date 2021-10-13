@@ -44,7 +44,7 @@ public class TellerMainMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or e...");
+				System.out.println("\nInvalid selection. Please select a, b or e. Returning to top of menu...");
 				log.warn("Invalid input");
 				TellerMainMenu tmm = new TellerMainMenu();
 				tmm.getMenu(username, password);
