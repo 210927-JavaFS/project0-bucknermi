@@ -55,7 +55,7 @@ public class EntryMenu implements Menu {
 			}
 
 			else {
-				System.out.println("\nInvalid selection. Please select a, b or c");
+				System.out.println("\nInvalid selection. Please select a, b, c, d or e");
 				EntryMenu em = new EntryMenu();
 				em.getMenu("none", "none");
 			}
