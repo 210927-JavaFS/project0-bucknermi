@@ -163,3 +163,6 @@
 17:58:38.229 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
 18:01:27.963 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
 18:03:26.991 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+18:05:08.073 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
+18:05:33.289 [] [main] WARN  c.r.c.customer.CustomerLogin - Customer login attempt failed
+18:07:42.953 [] [main] INFO  c.r.c.customer.CustomerMainMenu - Program exited
