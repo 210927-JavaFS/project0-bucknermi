@@ -245,7 +245,7 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public boolean uniqueUsername(String username) {
 		try (Connection conn = Connections.getConnection()) { // try-with-resources
-			String sql = "SELECT * FROM account WHERE username = ?;";
+			String sql = "SELECT * FROM customer_names WHERE username = ?;";
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 
@@ -253,15 +253,18 @@ public class AccountDAOImpl implements AccountDAO {
 
 			ResultSet result = statement.executeQuery();
 
-			boolean x = result.next();
+			if(result.next()) {
+				return false;
+			}
+			log.info("shouldnt go here if name does exist");
 
-			return !x;
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return false;
+		return true;
 	}
 
 	@Override
